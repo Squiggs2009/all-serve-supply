@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact &amp; Order Request — All-Serve Supply</title>
+<meta name="description" content="Send an order request for wholesale food service supplies. Tell us the items and quantities you need and we'll follow up with case pricing and availability.">
+<link rel="icon" href="images/logo/favicon-64.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+<!-- Swaps the no-JS nav fallback for the toggle before first paint. -->
+<script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html"><img src="images/logo/logo.svg" alt="All-Serve Supply"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="nav-toggle-bars"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="supplies.html">Supplies</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Request a Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Get in Touch</span>
+        <h1>Request a quote</h1>
+        <p class="lede">Tell us what you need and we'll follow up with current case pricing and availability. This is an order <strong>request</strong>, not a checkout — nothing is charged or shipped until we've confirmed the details with you.</p>
+      </div>
+
+      <div class="contact-layout">
+
+        <div>
+          <!-- Phase 1 has no backend (static hosting). On submit, main.js
+               validates the fields and hands the details to the visitor's
+               email client via a mailto: link addressed to data-order-email
+               below. See PLACEHOLDER-DATA.md — the address is a placeholder,
+               and moving to a real form endpoint is a launch task. -->
+          <form class="form-grid" id="order-request-form" data-order-email="orders@example.com" novalidate>
+
+            <p class="field-hint">Fields marked <span class="required-mark" aria-hidden="true">*</span> are required.</p>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name <span class="required-mark" aria-hidden="true">*</span></label>
+                <input class="input" type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="company">Business name <span class="optional">(optional)</span></label>
+                <input class="input" type="text" id="company" name="company" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+                <input class="input" type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone <span class="optional">(optional)</span></label>
+                <input class="input" type="tel" id="phone" name="phone" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="items">Items needed and quantities <span class="required-mark" aria-hidden="true">*</span></label>
+              <textarea class="input" id="items" name="items" rows="5" required placeholder="e.g. 2 cases of 16 oz deli containers, 1 case of nitrile gloves (M), 3 cases of 12 oz hot cups"></textarea>
+              <p class="field-hint">Include sizes and case counts where you know them. If you're not sure, describe what you're using now and we'll match it.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="notes">Anything else <span class="optional">(optional)</span></label>
+              <textarea class="input" id="notes" name="notes" rows="3" placeholder="Delivery timing, recurring order schedule, questions about a product"></textarea>
+            </div>
+
+            <div>
+              <button class="btn btn-primary btn-block" type="submit">Send Request</button>
+              <p class="form-note" id="form-note">Opens your email app with the details filled in, ready to send. Prefer to write to us directly? Use the email address listed here.</p>
+            </div>
+
+          </form>
+
+          <!-- Revealed by main.js once the request has been handed off. -->
+          <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
+            <h2>Your request is ready to send</h2>
+            <p>We've opened your email app with the details filled in — send that message and it reaches us directly.</p>
+            <p>If nothing opened, your device may not have an email app set up. Email us at the address listed on this page instead and we'll pick it up from there.</p>
+          </div>
+        </div>
+
+        <aside class="contact-panel">
+          <h2>Contact details</h2>
+          <!-- TODO (client): supply real email before launch.
+               Per project rules, no physical or supply address is published
+               anywhere on this site. See PLACEHOLDER-DATA.md. -->
+          <dl class="contact-list">
+            <div>
+              <dt>Phone</dt>
+              <dd>+1 (832) 839 0537</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd class="pending">Email address to be added</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Mon–Fri: 8:00 AM – 5:00 PM<br>Sat: 12:00 PM – 5:00 PM<br>Sun: Closed</dd>
+            </div>
+            <div>
+              <dt>Response time</dt>
+              <dd>Requests are usually answered within one business day. Contact directly for any special arrangements.</dd>
+            </div>
+          </dl>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand-block">
+      <a class="footer-logo" href="index.html"><img src="images/logo/inverted-logo.svg" alt="All-Serve Supply"></a>
+      <span class="footer-legal">Food service supply.</span>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="supplies.html">Supplies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-credit">
+    <p>Site by <a href="https://www.nodelync.cloud/" target="_blank" rel="noopener noreferrer">Nodelync</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

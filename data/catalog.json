@@ -1,0 +1,236 @@
+{
+  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data, except item-013 (Poly Gloves) whose price is still unconfirmed (price: null). SKUs are sequential placeholders, not real client SKUs.",
+  "items": [
+    {
+      "id": "item-001",
+      "sku": "ASS-0001",
+      "name": "White Foam Take-Out Container, Hinged Lid — 9×6×3\"",
+      "category": "Food Containers",
+      "price": 18.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-container-9x6x3.jpg",
+      "description": "White foam hinged-lid take-out container, 9×6×3 in. 100 per case."
+    },
+    {
+      "id": "item-002",
+      "sku": "ASS-0002",
+      "name": "White Foam Take-Out Container, Hinged Lid — 9×6×2.5\"",
+      "category": "Food Containers",
+      "price": 34.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-container-9x6x2-5.jpg",
+      "description": "White foam hinged-lid take-out container, 9×6×2.5 in. 200 per case."
+    },
+    {
+      "id": "item-003",
+      "sku": "ASS-0003",
+      "name": "White Foam Hot Dog Container, Hinged Lid — 7×4×2\" (125 ct)",
+      "category": "Food Containers",
+      "price": 16.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-hotdog-container-125ct.jpg",
+      "description": "White foam hinged-lid hot dog container, 7×4×2 in. 125 per case."
+    },
+    {
+      "id": "item-004",
+      "sku": "ASS-0004",
+      "name": "White Foam Hot Dog Container, Hinged Lid — 7×4×2\" (500 ct, bulk)",
+      "category": "Food Containers",
+      "price": 43.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-hotdog-container-500ct.jpg",
+      "description": "White foam hinged-lid hot dog container, 7×4×2 in. 500 per case."
+    },
+    {
+      "id": "item-005",
+      "sku": "ASS-0005",
+      "name": "White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3\"",
+      "category": "Food Containers",
+      "price": 35.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-square-container-1comp.jpg",
+      "description": "White foam square take-out container, 1 compartment, 9.5×9×3 in. 200 per case."
+    },
+    {
+      "id": "item-006",
+      "sku": "ASS-0006",
+      "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\"",
+      "category": "Food Containers",
+      "price": 42.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-square-container-3comp.jpg",
+      "description": "White foam square take-out container, 3 compartments, 9.5×9×3 in. 200 per case."
+    },
+    {
+      "id": "item-007",
+      "sku": "ASS-0007",
+      "name": "Paper Bag — Size #2",
+      "category": "Paper Bags",
+      "price": 16.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/paper-bag-2.jpg",
+      "description": "Kraft paper bag, size #2. 500 per case."
+    },
+    {
+      "id": "item-008",
+      "sku": "ASS-0008",
+      "name": "Paper Bag — Size #4",
+      "category": "Paper Bags",
+      "price": 19.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/paper-bag-4.jpg",
+      "description": "Kraft paper bag, size #4. 500 per case."
+    },
+    {
+      "id": "item-009",
+      "sku": "ASS-0009",
+      "name": "Paper Bag — Size #8",
+      "category": "Paper Bags",
+      "price": 24.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/paper-bag-8.jpg",
+      "description": "Kraft paper bag, size #8. 500 per case."
+    },
+    {
+      "id": "item-010",
+      "sku": "ASS-0010",
+      "name": "32 oz Cup Kit — Cup, Lid & Straw",
+      "category": "Cups & Lids",
+      "price": 25.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/cup-kit-32oz.jpg",
+      "description": "32 oz cold cup kit — cup, lid and straw included. 50 kits per case."
+    },
+    {
+      "id": "item-011",
+      "sku": "ASS-0011",
+      "name": "Foam Cup",
+      "category": "Cups & Lids",
+      "price": 44.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-cups.jpg",
+      "description": "Foam drink cup. 1,000 per case."
+    },
+    {
+      "id": "item-012",
+      "sku": "ASS-0012",
+      "name": "White Vented Lid — Hot Cups",
+      "category": "Cups & Lids",
+      "price": 39.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/vented-lids-white.jpg",
+      "description": "White vented lid for hot cups. 1,000 per case."
+    },
+    {
+      "id": "item-013",
+      "sku": "ASS-0013",
+      "name": "Boba Straws — Assorted Colors",
+      "category": "Cups & Lids",
+      "price": 48.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/boba-straws.jpg",
+      "description": "Individually wrapped boba straws, assorted colors. 1,600 per case."
+    },
+    {
+      "id": "item-014",
+      "sku": "ASS-0014",
+      "name": "Portion Cup — 1 oz",
+      "category": "Cups & Lids",
+      "price": 28.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/souffle-cup-1oz.jpg",
+      "description": "Clear plastic portion cup, 1 oz. 2,500 per case."
+    },
+    {
+      "id": "item-015",
+      "sku": "ASS-0015",
+      "name": "Portion Cup Lid — Fits 0.5–1.25 oz",
+      "category": "Cups & Lids",
+      "price": 26.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/souffle-lid-small.jpg",
+      "description": "PET lid, fits 0.5–1.25 oz portion cups. 2,500 per case."
+    },
+    {
+      "id": "item-016",
+      "sku": "ASS-0016",
+      "name": "Portion Cup — 2 oz",
+      "category": "Cups & Lids",
+      "price": 34.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/souffle-cup-2oz.jpg",
+      "description": "Clear plastic portion cup, 2 oz. 2,500 per case."
+    },
+    {
+      "id": "item-017",
+      "sku": "ASS-0017",
+      "name": "Portion Cup Lid — Fits 1.5–2.5 oz",
+      "category": "Cups & Lids",
+      "price": 31.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/souffle-lid-large.jpg",
+      "description": "PET lid, fits 1.5–2.5 oz portion cups. 2,500 per case."
+    },
+    {
+      "id": "item-018",
+      "sku": "ASS-0018",
+      "name": "Juice Bottle — 16 oz PET, Tall Square",
+      "category": "Beverages & Carriers",
+      "price": 26.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/juice-bottle-16oz.jpg",
+      "description": "Clear PET juice bottle, tall square shape, with white lid. 16 oz, 26 per case."
+    },
+    {
+      "id": "item-019",
+      "sku": "ASS-0019",
+      "name": "Pulp Fiber 4-Cup Carrier",
+      "category": "Beverages & Carriers",
+      "price": 49.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/pulp-fiber-4cup-carrier.jpg",
+      "description": "Molded pulp fiber carrier, holds 4 cups. 300 per case."
+    },
+    {
+      "id": "item-020",
+      "sku": "ASS-0020",
+      "name": "Poly Gloves, Large — Food Service",
+      "category": "Gloves & Cleaning Supplies",
+      "price": null,
+      "unit": "box",
+      "in_stock": true,
+      "image": "images/catalog/poly-gloves-large.jpg",
+      "description": "Large disposable poly glove, food service grade. 500 per box."
+    },
+    {
+      "id": "item-021",
+      "sku": "ASS-0021",
+      "name": "Sanitizing Multi-Surface Wipes",
+      "category": "Gloves & Cleaning Supplies",
+      "price": 12.00,
+      "unit": "canister",
+      "in_stock": true,
+      "image": "images/catalog/sanitizing-wipes.jpg",
+      "description": "Sanitizing wipes for food-contact and general surfaces. 175 per canister."
+    }
+  ]
+}

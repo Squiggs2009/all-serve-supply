@@ -1,0 +1,1120 @@
+/* ==========================================================================
+   All-Serve Supply — Phase 1 stylesheet
+   Plain CSS, single file, mobile-first. No frameworks, no build step.
+   Breakpoints: 640px (tablet), 1024px (desktop). min-width only.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* BRAND PALETTE — sourced from the real logo (images/logo/logo.svg).
+     --color-accent is the exact icon-back/tagline red (#b92f28); the other
+     steps are a computed tonal scale at the same hue so the family reads as
+     one color. The logo's brighter icon-front red (#ef2e32, oklch(62% 0.226
+     26)) is intentionally NOT used as a token value: at that lightness, white
+     button text only reaches 4.12:1 (fails the 4.5:1 AA minimum) — #b92f28 is
+     the darker of the two real logo reds and clears it with real margin
+     (6:1), so it's the one that does double duty as the UI accent. */
+  --color-accent: oklch(52% 0.176 28);
+  --color-accent-600: oklch(44% 0.165 27);
+  --color-accent-700: oklch(36% 0.14 27);
+  --color-accent-200: oklch(93% 0.032 27);
+  --color-accent-100: oklch(97% 0.012 27);
+
+  --color-text: oklch(22% 0.005 260);
+  --color-text-muted: oklch(48% 0.008 260);
+  --color-bg: oklch(100% 0 0);
+  --color-surface: oklch(97.5% 0.002 260);
+  --color-surface-2: oklch(94.5% 0.003 260);
+  --color-divider: oklch(89% 0.004 260);
+  /* Footer-only neutrals (the one dark surface on the site) — kept as named
+     tokens rather than literals so they're covered by the same system. */
+  --color-footer-text: oklch(88% 0.004 260);
+  --color-footer-text-muted: oklch(72% 0.004 260);
+  --color-footer-divider: oklch(88% 0.004 260 / 0.15);
+
+  /* 4px base scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --measure: 60ch;
+  --radius: 4px;
+  --container: 1200px;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+
+  --shadow-sm: 0 1px 2px oklch(22% 0.005 260 / 0.06);
+  --shadow-md: 0 2px 8px oklch(22% 0.005 260 / 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchor targets clear the sticky header. */
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  font-weight: 700;
+}
+
+h3,
+h4 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-accent-700);
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* The global ring color is tuned for light backgrounds (8.46:1 on white) but
+   only reaches 2.05:1 on the footer's near-black background — well under
+   the 3:1 non-text contrast minimum. Swap to the footer's own light
+   neutral there instead of trying to find one color that works on both. */
+.site-footer :focus-visible {
+  outline-color: var(--color-footer-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Visible only to screen readers, until focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-divider);
+}
+
+.section-head {
+  margin-bottom: var(--space-6);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-accent-700);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: var(--measure);
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose p + p {
+  margin-top: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER / NAV
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand img {
+  display: block;
+  height: 3.75rem;
+  width: auto;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: calc(var(--space-2) * -1);
+  padding: 0;
+  /* Same 3:1 non-text contrast reasoning as .input / .btn-secondary. */
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+
+.nav-toggle-bars {
+  position: relative;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-bars::before {
+  top: -6px;
+}
+
+.nav-toggle-bars::after {
+  top: 6px;
+}
+
+/* Mobile: panel drops below the header bar, hidden until toggled. */
+.site-nav {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: var(--space-2) var(--space-5) var(--space-4);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-md);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* :not(.btn) throughout — a bare `.site-nav a` selector outranks `.btn` and
+   `.btn-primary` on specificity (0,1,1 vs 0,1,0) and would strip the quote
+   button's padding and white text. */
+.site-nav a:not(.btn) {
+  display: block;
+  padding: var(--space-3) 0;
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-nav a:not(.btn):hover {
+  color: var(--color-accent-700);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-accent-700);
+  font-weight: 600;
+}
+
+.site-nav .btn {
+  margin-top: var(--space-3);
+  width: 100%;
+}
+
+/* No-JS fallback: the toggle is useless without JS, so hide it and show the
+   links inline. Removed by main.js on load. */
+.no-js .nav-toggle {
+  display: none;
+}
+
+.no-js .site-nav {
+  display: block;
+  position: static;
+  padding: 0 0 var(--space-4);
+  box-shadow: none;
+  border-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: oklch(100% 0 0);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-600);
+  border-color: var(--color-accent-600);
+}
+
+.btn-secondary {
+  background: var(--color-bg);
+  /* Same reasoning as .input: this border is the button's only boundary on
+     a matching background, so it needs 3:1, not --color-divider's 1.39:1. */
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* Stacked buttons read as a deliberate pair rather than two ragged widths.
+   Reset to intrinsic width at the tablet breakpoint, where they sit inline. */
+.btn-row .btn {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO
+   -------------------------------------------------------------------------- */
+
+.hero {
+  padding-block: var(--space-7) var(--space-7);
+}
+
+.hero-copy p {
+  max-width: 52ch;
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+}
+
+.hero-media {
+  margin-top: var(--space-6);
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   7. PLACEHOLDER MEDIA
+   Stand-in for photography that has not been supplied yet. Holds the exact
+   box a real image will occupy so nothing reflows when photos are added.
+   -------------------------------------------------------------------------- */
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: var(--color-surface);
+  background-image: linear-gradient(
+      45deg,
+      var(--color-surface-2) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, var(--color-surface-2) 25%, transparent 25%);
+  background-size: 16px 16px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+}
+
+.media-placeholder svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.4;
+}
+
+.hero-media .media-placeholder {
+  aspect-ratio: 5 / 4;
+}
+
+/* --------------------------------------------------------------------------
+   8. CARDS / GRIDS
+   -------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.card p {
+  flex: 1;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.card-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-accent);
+}
+
+.card-number {
+  color: var(--color-accent-700);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.card-link {
+  margin-top: var(--space-2);
+  align-self: flex-start;
+  color: var(--color-accent-700);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* Whole category card is clickable via the link, but the card itself gets
+   the hover affordance. */
+.card-category:hover {
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8b. ORDERING STEPS PANEL (about page)
+   Fills the space beside the About copy at desktop rather than leaving the
+   right half of the viewport empty.
+   -------------------------------------------------------------------------- */
+
+.about-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.steps-panel {
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.steps-panel h2 {
+  font-size: 1.125rem;
+}
+
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-5) 0;
+}
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: var(--space-1) var(--space-3);
+}
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  grid-row: span 2;
+  color: var(--color-accent-700);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.steps p {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. CATALOG
+   -------------------------------------------------------------------------- */
+
+.catalog-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.catalog-jump a {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent-100);
+  border: 1px solid var(--color-accent-200);
+  border-radius: 999px;
+  color: var(--color-accent-700);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.catalog-jump a:hover {
+  background: var(--color-accent-200);
+}
+
+.catalog-category + .catalog-category {
+  margin-top: var(--space-7);
+}
+
+.catalog-category-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.catalog-category-head h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.catalog-count {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.catalog-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+/* Every .catalog-item shares this exact structure — see the note above the
+   catalog section in about.html. Do not add per-item variations. */
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.catalog-item .item-media {
+  /* Placeholder standing in for images/catalog/[item].jpg — see
+     PLACEHOLDER-DATA.md. Sized so real photos drop in without reflow. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--space-4);
+  background: var(--color-surface);
+  background-image: linear-gradient(
+      45deg,
+      var(--color-surface-2) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, var(--color-surface-2) 25%, transparent 25%);
+  background-size: 16px 16px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.catalog-item .item-name {
+  /* Reserve two lines so a one-line name and a two-line name still put their
+     price on the same baseline across a grid row. */
+  min-height: 2.3em;
+  margin-bottom: var(--space-2);
+}
+
+.catalog-item .item-price {
+  margin-bottom: var(--space-2);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.catalog-item .item-unit {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.catalog-item .item-description {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.catalog-note {
+  max-width: var(--measure);
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. FORM
+   -------------------------------------------------------------------------- */
+
+.form-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.form-row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-field label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.form-field .optional {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.required-mark {
+  margin-left: 0.125em;
+  color: var(--color-accent-700);
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-3);
+  background: var(--color-bg);
+  /* Not --color-divider (1.39:1 against this same white background) — a
+     form field's boundary is a UI component that needs to be perceivable
+     on its own, so it needs the full 3:1 non-text contrast minimum. */
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.input:hover {
+  border-color: var(--color-text);
+}
+
+textarea.input {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.field-hint {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.form-note {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Revealed by main.js after a successful submit. */
+.form-success[hidden] {
+  display: none;
+}
+
+.form-success {
+  padding: var(--space-5);
+  background: var(--color-accent-100);
+  border: 1px solid var(--color-accent-200);
+  border-radius: var(--radius);
+}
+
+.form-success h2 {
+  margin-bottom: var(--space-2);
+  font-size: 1.25rem;
+}
+
+.form-success p {
+  color: var(--color-text-muted);
+}
+
+.form-success p + p {
+  margin-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   11. CONTACT DETAILS
+   -------------------------------------------------------------------------- */
+
+.contact-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact-panel {
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.contact-panel h2 {
+  font-size: 1.125rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.contact-list dt {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-list dd {
+  margin: var(--space-1) 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Marks a value the client still has to supply. */
+.pending {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   12. CTA BAND
+   -------------------------------------------------------------------------- */
+
+.cta-band {
+  padding-block: var(--space-7);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-divider);
+  text-align: center;
+}
+
+.cta-band p {
+  max-width: 52ch;
+  margin: var(--space-4) auto 0;
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+}
+
+.cta-band .btn-row {
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  padding-block: var(--space-6);
+  background: var(--color-text);
+  color: var(--color-footer-text);
+  font-size: 0.875rem;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.site-footer a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+}
+
+.site-footer a:not(.footer-logo):hover {
+  color: oklch(100% 0 0);
+  text-decoration: underline;
+}
+
+.site-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+/* Scoped to the footer's <nav> specifically (not .footer-logo, a sibling
+   link outside it) — matches the touch-target padding already used on the
+   equivalent primary nav links (.site-nav a:not(.btn)). Without it these
+   links are just their line-height tall (~22px), under the 24px WCAG
+   minimum and well under the ~44px norm used everywhere else on the site. */
+.site-footer nav a {
+  display: inline-block;
+  padding: var(--space-3) 0;
+}
+
+.footer-brand-block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.footer-logo {
+  display: inline-flex;
+}
+
+.footer-logo img {
+  display: block;
+  height: 3rem;
+  width: auto;
+}
+
+.footer-legal {
+  color: var(--color-footer-text-muted);
+}
+
+/* Deliberately more muted than the rest of the footer — a secondary credit
+   line, not a primary nav/brand element competing for attention. */
+.footer-credit {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-footer-divider);
+  font-size: 0.75rem;
+  color: var(--color-footer-text-muted);
+}
+
+.site-footer .footer-credit a {
+  color: var(--color-footer-text-muted);
+  text-decoration: underline;
+}
+
+.site-footer .footer-credit a:hover {
+  color: var(--color-footer-text);
+}
+
+/* --------------------------------------------------------------------------
+   14. TABLET — 640px
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 40em) {
+  .container {
+    padding-inline: var(--space-6);
+  }
+
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-block {
+    width: auto;
+    min-width: 14rem;
+  }
+
+  .btn-row .btn {
+    width: auto;
+  }
+
+  .site-footer .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. DESKTOP — 1024px
+   Not a stretched mobile layout: the extra width buys a split hero, a wider
+   catalog grid, a form/details split, and roughly double the vertical rhythm.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 64em) {
+  .container {
+    padding-inline: var(--space-7);
+  }
+
+  .section {
+    padding-block: calc(var(--space-8) * 1.4);
+  }
+
+  /* Nav becomes a persistent inline row. */
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    position: static;
+    padding: 0;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .site-nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .site-nav a:not(.btn) {
+    padding: 0;
+  }
+
+  .site-nav a:not(.btn)[aria-current="page"] {
+    box-shadow: inset 0 -2px 0 var(--color-accent);
+  }
+
+  .site-nav .btn {
+    margin-top: 0;
+    width: auto;
+  }
+
+  /* Split hero. */
+  .hero {
+    padding-block: calc(var(--space-8) * 1.5);
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .hero-media {
+    margin-top: 0;
+  }
+
+  .grid-3,
+  .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .catalog-category + .catalog-category {
+    margin-top: var(--space-8);
+  }
+
+  /* About copy beside the ordering-steps panel. */
+  .about-layout {
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Form beside the contact details. */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .cta-band {
+    padding-block: var(--space-8);
+  }
+}
+
+/* Five category cards read better as a single row of five once there is
+   room for it, rather than 3 + 2. */
+@media (min-width: 80em) {
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

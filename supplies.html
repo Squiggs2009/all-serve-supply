@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &amp; Supplies Catalog — All-Serve Supply</title>
+<meta name="description" content="Our full supplies catalog: containers, paper bags, cups and lids, beverages and cleaning supplies, priced by the case for food service operators.">
+<link rel="icon" href="images/logo/favicon-64.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+<!-- Swaps the no-JS nav fallback for the toggle before first paint. -->
+<script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html"><img src="images/logo/logo.svg" alt="All-Serve Supply"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="nav-toggle-bars"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="supplies.html" aria-current="page">Supplies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Request a Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- About -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">About Us</span>
+        <h1>A supply partner for food service operators</h1>
+      </div>
+
+      <div class="about-layout">
+        <div class="prose">
+          <p>All-Serve Supply provides wholesale disposables to restaurants, food trucks, cafés and caterers. We stock the everyday consumables a kitchen moves through in volume — containers, bags, cups, lids, bottles and gloves — and price them by the case so ordering in bulk actually costs less per unit.</p>
+          <p>We keep the range deliberately focused. Rather than list thousands of items, we carry the sizes and formats that working kitchens reorder week after week, which keeps stock consistent and lead times short.</p>
+          <p>Ordering is straightforward. Send us a request with the items and quantities you're after and we'll come back with current case pricing and availability. Nothing is charged or shipped until we've confirmed the details with you directly — there's no account to set up and no minimum to get a quote.</p>
+        </div>
+
+        <aside class="steps-panel">
+          <h2>How ordering works</h2>
+          <ol class="steps">
+            <li>
+              <h3>Send a request</h3>
+              <p>List the items and quantities you need. No account, no minimum.</p>
+            </li>
+            <li>
+              <h3>We confirm the details</h3>
+              <p>We come back with current case pricing, pack counts and availability.</p>
+            </li>
+            <li>
+              <h3>You approve, then we ship</h3>
+              <p>Nothing is charged or dispatched until you've signed off on the quote.</p>
+            </li>
+          </ol>
+          <a class="btn btn-primary" href="contact.html">Request a Quote</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Supplies Catalog · 21 Items</span>
+        <h2>What we carry</h2>
+        <p class="lede">Wholesale case pricing on every line below. Don't see the size or quantity you need? Ask us — we'll source it.</p>
+
+        <div class="catalog-jump">
+          <a href="#containers">Food Containers</a>
+          <a href="#bags">Paper Bags</a>
+          <a href="#cups">Cups &amp; Lids</a>
+          <a href="#bottles">Beverages &amp; Carriers</a>
+          <a href="#gloves">Gloves &amp; Cleaning Supplies</a>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           PHASE 1: The catalog items below are HARDCODED HTML.
+           They are NOT rendered from data/catalog.json. That file is a
+           reference copy of the data shape only, kept in sync by hand for a
+           possible future dynamic build (e.g. if payments are added).
+           Do not add fetch() or JS rendering here.
+
+           Every .catalog-item MUST keep identical structure, class names and
+           tag order:
+               .catalog-item > .item-media, h4.item-name,
+                               p.item-price > span.item-unit,
+                               p.item-description
+           (h4, not h3: item names sit one level under the category h3.)
+           No one-off markup on individual items — that uniformity is what
+           keeps a future migration to dynamic rendering a mechanical change.
+
+           Real client data as of the 21-item catalog update. One exception:
+           the Poly Gloves item under Gloves & Cleaning Supplies has no
+           confirmed price yet — it renders "Price: TBD" (.pending) instead
+           of a number. Do not invent a figure for it. .item-media is a CSS
+           placeholder standing in for images/catalog/[item].jpg, which has
+           not been supplied yet. See PLACEHOLDER-DATA.md at the project root.
+           ===================================================================== -->
+
+      <!-- Food Containers -->
+      <div class="catalog-category" id="containers">
+        <div class="catalog-category-head">
+          <h3>Food Containers</h3>
+          <span class="catalog-count">6 items</span>
+        </div>
+        <div class="catalog-grid">
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Take-Out Container, Hinged Lid — 9×6×3"</h4>
+            <p class="item-price">$18.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam hinged-lid take-out container, 9×6×3 in. 100 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Take-Out Container, Hinged Lid — 9×6×2.5"</h4>
+            <p class="item-price">$34.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam hinged-lid take-out container, 9×6×2.5 in. 200 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (125 ct)</h4>
+            <p class="item-price">$16.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. 125 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (500 ct, bulk)</h4>
+            <p class="item-price">$43.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. 500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3"</h4>
+            <p class="item-price">$35.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam square take-out container, 1 compartment, 9.5×9×3 in. 200 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3"</h4>
+            <p class="item-price">$42.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White foam square take-out container, 3 compartments, 9.5×9×3 in. 200 per case.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Paper Bags -->
+      <div class="catalog-category" id="bags">
+        <div class="catalog-category-head">
+          <h3>Paper Bags</h3>
+          <span class="catalog-count">3 items</span>
+        </div>
+        <div class="catalog-grid">
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Paper Bag — Size #2</h4>
+            <p class="item-price">$16.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Kraft paper bag, size #2. 500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Paper Bag — Size #4</h4>
+            <p class="item-price">$19.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Kraft paper bag, size #4. 500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Paper Bag — Size #8</h4>
+            <p class="item-price">$24.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Kraft paper bag, size #8. 500 per case.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Cups & Lids -->
+      <div class="catalog-category" id="cups">
+        <div class="catalog-category-head">
+          <h3>Cups &amp; Lids</h3>
+          <span class="catalog-count">8 items</span>
+        </div>
+        <div class="catalog-grid">
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">32 oz Cup Kit — Cup, Lid &amp; Straw</h4>
+            <p class="item-price">$25.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">32 oz cold cup kit — cup, lid and straw included. 50 kits per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Foam Cup</h4>
+            <p class="item-price">$44.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Foam drink cup. 1,000 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">White Vented Lid — Hot Cups</h4>
+            <p class="item-price">$39.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">White vented lid for hot cups. 1,000 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Boba Straws — Assorted Colors</h4>
+            <p class="item-price">$48.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Individually wrapped boba straws, assorted colors. 1,600 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Portion Cup — 1 oz</h4>
+            <p class="item-price">$28.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Clear plastic portion cup, 1 oz. 2,500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Portion Cup Lid — Fits 0.5–1.25 oz</h4>
+            <p class="item-price">$26.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">PET lid, fits 0.5–1.25 oz portion cups. 2,500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Portion Cup — 2 oz</h4>
+            <p class="item-price">$34.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Clear plastic portion cup, 2 oz. 2,500 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Portion Cup Lid — Fits 1.5–2.5 oz</h4>
+            <p class="item-price">$31.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">PET lid, fits 1.5–2.5 oz portion cups. 2,500 per case.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Beverages & Carriers -->
+      <div class="catalog-category" id="bottles">
+        <div class="catalog-category-head">
+          <h3>Beverages &amp; Carriers</h3>
+          <span class="catalog-count">2 items</span>
+        </div>
+        <div class="catalog-grid">
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Juice Bottle — 16 oz PET, Tall Square</h4>
+            <p class="item-price">$26.00 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Clear PET juice bottle, tall square shape, with white lid. 16 oz, 26 per case.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Pulp Fiber 4-Cup Carrier</h4>
+            <p class="item-price">$49.99 <span class="item-unit">/ case</span></p>
+            <p class="item-description">Molded pulp fiber carrier, holds 4 cups. 300 per case.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Gloves & Cleaning Supplies -->
+      <div class="catalog-category" id="gloves">
+        <div class="catalog-category-head">
+          <h3>Gloves &amp; Cleaning Supplies</h3>
+          <span class="catalog-count">2 items</span>
+        </div>
+        <div class="catalog-grid">
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Poly Gloves, Large — Food Service</h4>
+            <p class="item-price"><span class="pending">Price: TBD</span> <span class="item-unit">/ box</span></p>
+            <p class="item-description">Large disposable poly glove, food service grade. 500 per box.</p>
+          </div>
+
+          <div class="catalog-item">
+            <div class="item-media" aria-hidden="true"></div>
+            <h4 class="item-name">Sanitizing Multi-Surface Wipes</h4>
+            <p class="item-price">$12.00 <span class="item-unit">/ canister</span></p>
+            <p class="item-description">Sanitizing wipes for food-contact and general surfaces. 175 per canister.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="catalog-note">Prices shown are per case and are indicative — we confirm current pricing and availability on every request before anything is finalized.</p>
+
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Need a quote on any of these?</h2>
+      <p>Send us the items and quantities you're after. We'll confirm case pricing and availability, then take it from there.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand-block">
+      <a class="footer-logo" href="index.html"><img src="images/logo/inverted-logo.svg" alt="All-Serve Supply"></a>
+      <span class="footer-legal">Food service supply.</span>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="supplies.html">Supplies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-credit">
+    <p>Site by <a href="https://www.nodelync.cloud/" target="_blank" rel="noopener noreferrer">Nodelync</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
