@@ -429,67 +429,53 @@ ul {
 
 /* --------------------------------------------------------------------------
    6. HERO
+   Full-bleed photo background with a flat near-black scrim (--color-text's
+   neutral, reused as a literal so alpha can apply — same pattern already
+   used for --shadow-sm/--shadow-md). This is the site's second deliberate
+   dark surface alongside the footer, so its overlaid text reuses the
+   footer's own light-neutral tokens rather than new ones. Contrast
+   verified against the actual photo's brightest sampled pixel (a blown
+   highlight, worst case): --color-footer-text hits 5.28:1, the eyebrow's
+   --color-accent-200 hits 6.10:1 — both clear 4.5:1 AA with real margin.
    -------------------------------------------------------------------------- */
 
 .hero {
-  padding-block: var(--space-7) var(--space-7);
+  display: flex;
+  align-items: center;
+  min-height: 30rem;
+  padding-block: var(--space-8);
+  background-image:
+    linear-gradient(oklch(22% 0.005 260 / 75%), oklch(22% 0.005 260 / 75%)),
+    url("../images/gallery/hero-800.jpg");
+  background-size: cover;
+  background-position: 60% 45%;
+  background-repeat: no-repeat;
+}
+
+.hero .eyebrow {
+  color: var(--color-accent-200);
+}
+
+.hero h1 {
+  color: var(--color-bg);
 }
 
 .hero-copy p {
   max-width: 52ch;
   margin-top: var(--space-4);
-  color: var(--color-text-muted);
+  color: var(--color-footer-text);
   font-size: 1.0625rem;
 }
 
-.hero-media {
-  margin-top: var(--space-6);
-}
-
-.hero-photo {
-  display: block;
-  width: 100%;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  border-radius: var(--radius);
+/* Same reasoning as .site-footer :focus-visible — the global ring color
+   (--color-accent-600) is tuned for light backgrounds and fails 3:1 here
+   too; swap to the light neutral used in this section instead. */
+.hero :focus-visible {
+  outline-color: var(--color-footer-text);
 }
 
 /* --------------------------------------------------------------------------
-   7. PLACEHOLDER MEDIA
-   Stand-in for photography that has not been supplied yet. Holds the exact
-   box a real image will occupy so nothing reflows when photos are added.
-   -------------------------------------------------------------------------- */
-
-.media-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
-  background: var(--color-surface);
-  background-image: linear-gradient(
-      45deg,
-      var(--color-surface-2) 25%,
-      transparent 25%
-    ),
-    linear-gradient(-45deg, var(--color-surface-2) 25%, transparent 25%);
-  background-size: 16px 16px;
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius);
-  color: var(--color-text-muted);
-}
-
-.media-placeholder svg {
-  width: 2rem;
-  height: 2rem;
-  opacity: 0.4;
-}
-
-.hero-media .media-placeholder {
-  aspect-ratio: 5 / 4;
-}
-
-/* --------------------------------------------------------------------------
-   8. CARDS / GRIDS
+   7. CARDS / GRIDS
    -------------------------------------------------------------------------- */
 
 .grid {
@@ -600,7 +586,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   9. CATALOG
+   8. CATALOG
    -------------------------------------------------------------------------- */
 
 .catalog-jump {
@@ -723,7 +709,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   10. FORM
+   9. FORM
    -------------------------------------------------------------------------- */
 
 .form-grid {
@@ -819,7 +805,7 @@ textarea.input {
 }
 
 /* --------------------------------------------------------------------------
-   11. CONTACT DETAILS
+   10. CONTACT DETAILS
    -------------------------------------------------------------------------- */
 
 .contact-layout {
@@ -866,7 +852,7 @@ textarea.input {
 }
 
 /* --------------------------------------------------------------------------
-   12. CTA BAND
+   11. CTA BAND
    -------------------------------------------------------------------------- */
 
 .cta-band {
@@ -888,7 +874,7 @@ textarea.input {
 }
 
 /* --------------------------------------------------------------------------
-   13. FOOTER
+   12. FOOTER
    -------------------------------------------------------------------------- */
 
 .site-footer {
@@ -971,7 +957,7 @@ textarea.input {
 }
 
 /* --------------------------------------------------------------------------
-   14. TABLET — 640px
+   13. TABLET — 640px
    -------------------------------------------------------------------------- */
 
 @media (min-width: 40em) {
@@ -1016,7 +1002,7 @@ textarea.input {
 }
 
 /* --------------------------------------------------------------------------
-   15. DESKTOP — 1024px
+   14. DESKTOP — 1024px
    Not a stretched mobile layout: the extra width buys a split hero, a wider
    catalog grid, a form/details split, and roughly double the vertical rhythm.
    -------------------------------------------------------------------------- */
@@ -1062,20 +1048,17 @@ textarea.input {
     width: auto;
   }
 
-  /* Split hero. */
+  /* Full-bleed photo hero at desktop — no longer a split grid. */
   .hero {
-    padding-block: calc(var(--space-8) * 1.5);
+    min-height: 34rem;
+    padding-block: calc(var(--space-8) * 1.25);
+    background-image:
+      linear-gradient(oklch(22% 0.005 260 / 75%), oklch(22% 0.005 260 / 75%)),
+      url("../images/gallery/hero.jpg");
   }
 
-  .hero .container {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: var(--space-8);
-    align-items: center;
-  }
-
-  .hero-media {
-    margin-top: 0;
+  .hero-copy {
+    max-width: 34rem;
   }
 
   .grid-3,
