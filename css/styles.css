@@ -655,10 +655,16 @@ ul {
 
 .catalog-item .item-media {
   /* Placeholder standing in for images/catalog/[item].jpg — see
-     PLACEHOLDER-DATA.md. Sized so real photos drop in without reflow. */
+     PLACEHOLDER-DATA.md. Sized so real photos drop in without reflow.
+     width/height/object-fit/object-position are no-ops on the empty
+     placeholder divs and only take effect once an item swaps to a real
+     <img class="item-media">. object-position: top is the shared default
+     for every catalog photo (product-on-a-table shots read best anchored
+     high, not centered) — not a per-item override. */
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   aspect-ratio: 1 / 1;
   margin-bottom: var(--space-4);
   background: var(--color-surface);
@@ -671,6 +677,8 @@ ul {
   background-size: 16px 16px;
   border: 1px solid var(--color-divider);
   border-radius: var(--radius);
+  object-fit: cover;
+  object-position: top;
 }
 
 .catalog-item .item-name {
