@@ -24,27 +24,24 @@ placeholders). One item remains unresolved:
 Every item's `.item-description` now states the real material/format and
 pack count the client provided. No longer placeholder text.
 
-## 3. Contact details — almost done
+## 3. Contact details — done
 
 In `contact.html`, the contact panel:
 
 - Phone — **done.** Real number in place, `.pending` class removed.
 - Business hours — **done.** Mon–Fri 8am–5pm, Sat 12–5pm, Sun closed.
-- Email address — still a placeholder, marked `.pending`.
-
-Replace the placeholder email text and remove `class="pending"` from that
-`<dd>` once a real address is supplied.
+- Email address — **done.** `pedroalvarez@allservesupply.com`.
 
 > **Project rule:** the client's physical / supply address must **never**
 > appear anywhere on this site — not in page copy, comments, `<meta>` tags,
 > or schema markup. The mockups included an address field; it was removed
 > deliberately. Do not add it back.
 
-## 4. Order-request email address
+## 4. Order-request email address — done
 
-`contact.html` carries `data-order-email="orders@example.com"` on the form.
-`js/main.js` reads that attribute to build the `mailto:` link. Change the
-attribute value — no JS edit needed.
+`contact.html`'s form now carries
+`data-order-email="pedroalvarez@allservesupply.com"`. `js/main.js` reads
+that attribute to build the `mailto:` link — no JS edit needed.
 
 ## 5. Form submission mechanism — decision needed
 
