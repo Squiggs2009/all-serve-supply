@@ -103,19 +103,17 @@
            No one-off markup on individual items — that uniformity is what
            keeps a future migration to dynamic rendering a mechanical change.
 
-           Real client data as of the 21-item catalog update. One exception:
-           the Poly Gloves item under Gloves & Cleaning Supplies has no
-           confirmed price yet — it renders "Price: TBD" (.pending) instead
-           of a number. Do not invent a figure for it. .item-media is a CSS
-           placeholder standing in for images/catalog/[item].jpg, which has
-           not been supplied yet. See PLACEHOLDER-DATA.md at the project root.
+           Real client data as of the 21-item catalog update. All 21 items
+           now have confirmed prices and real photography — see
+           PLACEHOLDER-DATA.md at the project root for remaining launch
+           tasks unrelated to catalog content.
            ===================================================================== -->
 
       <!-- Food Containers -->
       <div class="catalog-category" id="containers">
         <div class="catalog-category-head">
           <h3>Food Containers</h3>
-          <span class="catalog-count">6 items</span>
+          <span class="catalog-count">5 items</span>
         </div>
         <div class="catalog-grid">
 
@@ -134,17 +132,13 @@
           </div>
 
           <div class="catalog-item">
-            <img class="item-media" src="images/catalog/food-containers/hotdog-container.jpg" alt="White Foam Hot Dog Container, Hinged Lid — 7×4×2&quot; (125 ct)">
-            <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (125 ct)</h4>
-            <p class="item-price">$16.00 <span class="item-unit">/ case</span></p>
-            <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. 125 per case.</p>
-          </div>
-
-          <div class="catalog-item">
-            <img class="item-media" src="images/catalog/food-containers/stacked-hotdog-container.jpg" alt="White Foam Hot Dog Container, Hinged Lid — 7×4×2&quot; (500 ct, bulk)">
-            <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (500 ct, bulk)</h4>
-            <p class="item-price">$43.00 <span class="item-unit">/ case</span></p>
-            <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. 500 per case.</p>
+            <img class="item-media" src="images/catalog/food-containers/stacked-hotdog-container.jpg" alt="White Foam Hot Dog Container, Hinged Lid — 7×4×2&quot;">
+            <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2"</h4>
+            <p class="item-price">
+              <span class="item-price-line">$16.00 <span class="item-unit">/ 125 ct case</span></span>
+              <span class="item-price-line">$42.00 <span class="item-unit">/ 500 ct bulk case</span></span>
+            </p>
+            <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. Available in a 125 ct case or 500 ct bulk case.</p>
           </div>
 
           <div class="catalog-item">
@@ -297,10 +291,10 @@
         <div class="catalog-grid">
 
           <div class="catalog-item">
-            <img class="item-media" src="images/catalog/gloves-and-cleaning/poly-gloves.jpg" alt="Poly Gloves, Large — Food Service">
-            <h4 class="item-name">Poly Gloves, Large — Food Service</h4>
-            <p class="item-price"><span class="pending">Price: TBD</span> <span class="item-unit">/ box</span></p>
-            <p class="item-description">Large disposable poly glove, food service grade. 500 per box.</p>
+            <img class="item-media" src="images/catalog/gloves-and-cleaning/poly-gloves.jpg" alt="Poly Gloves, S/M/L — Food Service">
+            <h4 class="item-name">Poly Gloves, S/M/L — Food Service</h4>
+            <p class="item-price">$16.99 <span class="item-unit">/ box</span></p>
+            <p class="item-description">Disposable poly glove, food service grade. Available in S/M/L. 500 per box.</p>
           </div>
 
           <div class="catalog-item">

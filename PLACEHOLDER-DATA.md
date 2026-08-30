@@ -6,18 +6,19 @@ replaced with figures and assets the client has confirmed.
 
 ---
 
-## 1. Catalog prices — done, except one item
+## 1. Catalog prices — done
 
 The 21-item catalog in `supplies.html` / `data/catalog.json` now uses real
 client prices and descriptions (replacing the earlier 17 invented
-placeholders). One item remains unresolved:
+placeholders). All 21 items have confirmed prices.
 
-- **ASS-0020, Poly Gloves, Large — Food Service** (Gloves & Cleaning
-  Supplies) has no confirmed price. It renders as **"Price: TBD"**
-  (`.pending` class) in `supplies.html`, and `price: null` in
-  `data/catalog.json`. Do not invent a number — get the real figure from
-  the client and update both places (they are kept in sync by hand) once
-  it's available.
+- **ASS-0020, Poly Gloves, S/M/L — Food Service** (Gloves & Cleaning
+  Supplies) was the last item without a confirmed price; it's now
+  **$16.99 / box** in both `supplies.html` and `data/catalog.json`. The
+  item name/description were also updated from "Large" to "S/M/L" since
+  the price covers all three sizes.
+- **ASS-0004, Hot Dog Container, 500 ct bulk** — corrected from $43.00 to
+  **$42.00** in both `supplies.html` and `data/catalog.json`.
 
 ## 2. Pack counts, materials and descriptions — done
 
@@ -69,17 +70,18 @@ and it exposes the destination address. Better options for launch:
   category subfolders under `images/catalog/` (`food-containers/`,
   `cups-and-lids/`, `paper-bags/`, etc.) rather than flat in
   `images/catalog/`.
-  - **Food Containers (6 of 6 — done):**
+  - **Food Containers (6 of 6 photos — done; 5 cards on the page, see
+    note below):**
     - `White Foam Take-Out Container — 9×6×3"` uses
       `images/catalog/food-containers/foam-container.jpg`.
     - `White Foam Take-Out Container — 9×6×2.5"` uses
       `images/catalog/food-containers/stacked-foam-containers.jpg`.
-    - `White Foam Hot Dog Container — 7×4×2" (125 ct)` uses
-      `images/catalog/food-containers/hotdog-container.jpg`.
-    - `White Foam Hot Dog Container — 7×4×2" (500 ct, bulk)` uses
+    - `White Foam Hot Dog Container — 7×4×2"` (125 ct and 500 ct bulk,
+      merged into one card — see note below) uses
       `images/catalog/food-containers/stacked-hotdog-container.jpg`
       (renamed from a typo'd client filename,
-      `stacked-hotdof-contianer.jpg`).
+      `stacked-hotdof-contianer.jpg`). The 125ct-only photo,
+      `hotdog-container.jpg`, remains on disk but is no longer referenced.
     - `White Foam Square Take-Out Container, 1-Compartment` uses
       `images/catalog/food-containers/1-compartment-container.jpg`
       (renamed from `1-compartment-foam.jpg` for naming consistency
@@ -88,6 +90,18 @@ and it exposes the destination address. Better options for launch:
       `images/catalog/food-containers/3-compartment-container.jpg`.
     - All 6 resized to 700px on the long edge, ~21–61 KB each (client
       originals were 2–2.8 MB).
+    - **Hot Dog Container merge (one-off exception):** the 125 ct and
+      500 ct bulk pack sizes used to render as two separate cards with
+      two different prices ($16.00 / $43.00) sitting next to each other,
+      which read as confusing. Per client request, they're now one
+      `.catalog-item` card with two stacked price lines ($16.00 / 125 ct
+      case and $42.00 / 500 ct bulk case) via a new opt-in
+      `.item-price-line` CSS class (see `css/styles.css`, near
+      `.item-price`). This is the only catalog card that deviates from
+      the one-price-per-card structure `CLAUDE.md` otherwise requires —
+      confirmed directly with the client, not an oversight. `data/catalog.json`
+      still lists these as two separate SKU rows (item-003 / item-004);
+      that 1-row-per-SKU vs. 1-card mismatch is expected, not a bug.
   - **Cups & Lids (8 of 8 — done):**
     - `32 oz Cup Kit — Cup, Lid & Straw` uses
       `images/catalog/cups-and-lids/32oz-cup-with-lids.jpg`. Its `src`
@@ -107,9 +121,10 @@ and it exposes the destination address. Better options for launch:
       `images/catalog/cups-and-lids/2oz-portion-cup.jpg`.
     - `Portion Cup Lid — Fits 0.5–1.25 oz` and
       `Portion Cup Lid — Fits 1.5–2.5 oz` both use
-      `images/catalog/cups-and-lids/portion-cup-lids.jpg` (two lid-size
-      listings sharing one representative photo, same pattern as the two
-      Hot Dog Container pack sizes above).
+      `images/catalog/cups-and-lids/portion-cup-lids.jpg` (two separate
+      cards sharing one representative photo — same pattern as the two
+      Paper Bag sizes below; unlike the Hot Dog Container above, which was
+      merged into a single card).
     - All resized to 700px on the long edge, ~31–61 KB each (client
       originals were 2–3 MB).
   - **Paper Bags (3 of 3 — done):**
@@ -128,7 +143,7 @@ and it exposes the destination address. Better options for launch:
     - Both resized to 700px wide, ~33–51 KB each (client originals were
       3–4.2 MB).
   - **Gloves & Cleaning Supplies (2 of 2 — done):**
-    - `Poly Gloves, Large — Food Service` uses
+    - `Poly Gloves, S/M/L — Food Service` uses
       `images/catalog/gloves-and-cleaning/poly-gloves.jpg`.
     - `Sanitizing Multi-Surface Wipes` uses
       `images/catalog/gloves-and-cleaning/sanitizing-wipes.jpg`. Note:

@@ -1,5 +1,5 @@
 {
-  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data, except item-013 (Poly Gloves) whose price is still unconfirmed (price: null). SKUs are sequential placeholders, not real client SKUs.",
+  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data. SKUs are sequential placeholders, not real client SKUs. Note: item-003 and item-004 (Hot Dog Container, 125ct/500ct) are two rows here (one per SKU/pack size), but supplies.html renders them as a single merged card with two stacked prices -- a deliberate Phase 1 display exception, not a data mismatch to fix.",
   "items": [
     {
       "id": "item-001",
@@ -39,7 +39,7 @@
       "sku": "ASS-0004",
       "name": "White Foam Hot Dog Container, Hinged Lid — 7×4×2\" (500 ct, bulk)",
       "category": "Food Containers",
-      "price": 43.00,
+      "price": 42.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-hotdog-container-500ct.jpg",
@@ -213,13 +213,13 @@
     {
       "id": "item-020",
       "sku": "ASS-0020",
-      "name": "Poly Gloves, Large — Food Service",
+      "name": "Poly Gloves, S/M/L — Food Service",
       "category": "Gloves & Cleaning Supplies",
-      "price": null,
+      "price": 16.99,
       "unit": "box",
       "in_stock": true,
-      "image": "images/catalog/poly-gloves-large.jpg",
-      "description": "Large disposable poly glove, food service grade. 500 per box."
+      "image": "images/catalog/gloves-and-cleaning/poly-gloves.jpg",
+      "description": "Disposable poly glove, food service grade. Available in S/M/L. 500 per box."
     },
     {
       "id": "item-021",
