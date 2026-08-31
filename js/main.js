@@ -2,13 +2,18 @@
    All-Serve Supply — Phase 1 scripts
    Plain JS, no dependencies, no build step.
 
-   Two responsibilities only:
+   Three responsibilities:
      1. Mobile navigation toggle
-     2. Contact / order-request form handoff
+     2. Contact page quantity steppers (#1-#23, one per priced catalog
+        option — see the note above the order-items block in contact.html)
+     3. Contact / order-request form handoff
 
-   The supplies catalog is deliberately NOT handled here. Catalog items are
-   hardcoded in about.html for Phase 1 — no fetch(), no rendering. See the
-   note above the catalog section in that file.
+   The supplies catalog itself is deliberately NOT handled here. Catalog
+   items are hardcoded in supplies.html for Phase 1 — no fetch(), no
+   rendering. The contact page's order-items rows are likewise hardcoded
+   HTML, not generated from the catalog; this file only reads their
+   already-rendered numbers, names and quantities to build the request
+   summary. See the note above the catalog section in supplies.html.
    ========================================================================== */
 
 (function () {
@@ -61,7 +66,43 @@
   }
 
   /* ------------------------------------------------------------------------
-     2. ORDER REQUEST FORM
+     2. ORDER ITEM QUANTITY STEPPERS
+     Each .order-item row is hardcoded HTML (see contact.html) with a
+     +/- button pair and a number input, default 0. This just wires the
+     buttons — the input itself already works via native number-input
+     typing and arrow keys.
+     ------------------------------------------------------------------------ */
+
+  function initOrderItems() {
+    var items = document.querySelectorAll('.order-item');
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      var input = item.querySelector('.qty-input');
+      if (!input) return;
+
+      var buttons = item.querySelectorAll('.qty-btn');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var step = parseInt(btn.getAttribute('data-step'), 10) || 0;
+          var current = parseInt(input.value, 10) || 0;
+          input.value = Math.max(0, current + step);
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      });
+
+      // A number input's min attribute blocks the native spinner and
+      // checkValidity(), but not direct typing — clamp by hand too.
+      input.addEventListener('input', function () {
+        if (input.value !== '' && parseInt(input.value, 10) < 0) {
+          input.value = 0;
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     3. ORDER REQUEST FORM
      Phase 1 is static-hosted with no backend, so the form does not post
      anywhere. It validates, then hands the details to the visitor's email
      client via mailto:. Nothing is claimed to have been sent that wasn't —
@@ -74,6 +115,7 @@
   function initForm() {
     var form = document.getElementById('order-request-form');
     var success = document.getElementById('form-success');
+    var itemsError = document.getElementById('order-items-error');
     if (!form || !success) return;
 
     function value(name) {
@@ -81,7 +123,31 @@
       return field && field.value ? field.value.trim() : '';
     }
 
+    // Reads the hardcoded #1-#23 rows directly from the DOM (name/number
+    // are already-rendered text, not a duplicated data source) and returns
+    // one formatted line per item with a quantity greater than 0.
+    function collectOrderItems() {
+      var lines = [];
+      document.querySelectorAll('.order-item').forEach(function (item) {
+        var input = item.querySelector('.qty-input');
+        var qty = input ? parseInt(input.value, 10) || 0 : 0;
+        if (qty <= 0) return;
+
+        var number = item.querySelector('.order-item-number').textContent.trim();
+        var name = item.querySelector('.order-item-name').textContent.trim();
+        lines.push(number + ' — ' + name + ' — Qty: ' + qty);
+      });
+      return lines;
+    }
+
+    function hideItemsError() {
+      if (itemsError) itemsError.hidden = true;
+    }
+
     function buildBody() {
+      var orderLines = collectOrderItems();
+      var freeTextItems = value('items');
+
       var lines = [
         'Order request from the All-Serve Supply website.',
         '',
@@ -90,15 +156,28 @@
         'Email: ' + value('email'),
         'Phone: ' + (value('phone') || '—'),
         '',
-        'Items needed and quantities:',
-        value('items')
+        'Items needed and quantities:'
       ];
+
+      if (orderLines.length) lines.push.apply(lines, orderLines);
+      if (freeTextItems) {
+        if (orderLines.length) lines.push('');
+        lines.push(freeTextItems);
+      }
 
       var notes = value('notes');
       if (notes) lines.push('', 'Additional notes:', notes);
 
       return lines.join('\r\n');
     }
+
+    // Selecting a quantity or typing in the fallback box clears a
+    // previously shown "pick something" error without waiting for submit.
+    document.querySelectorAll('.qty-input').forEach(function (input) {
+      input.addEventListener('input', hideItemsError);
+    });
+    var itemsField = form.elements['items'];
+    if (itemsField) itemsField.addEventListener('input', hideItemsError);
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -109,6 +188,15 @@
         form.reportValidity();
         return;
       }
+
+      if (!collectOrderItems().length && !value('items')) {
+        if (itemsError) {
+          itemsError.hidden = false;
+          itemsError.scrollIntoView({ block: 'center' });
+        }
+        return;
+      }
+      hideItemsError();
 
       var address = form.getAttribute('data-order-email') || '';
       var subject = 'Order request — ' + (value('company') || value('name'));
@@ -128,5 +216,6 @@
   }
 
   initNav();
+  initOrderItems();
   initForm();
 })();

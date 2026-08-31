@@ -705,6 +705,16 @@ ul {
   margin-top: var(--space-1);
 }
 
+/* Display-only #1-#23 numbering, one per priced option — see the note
+   above the catalog section in supplies.html. Muted so the price itself
+   stays the visually dominant value. */
+.catalog-item .item-number {
+  margin-right: var(--space-1);
+  color: var(--color-accent-700);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 .catalog-item .item-unit {
   color: var(--color-text-muted);
   font-size: 0.875rem;
@@ -796,6 +806,134 @@ textarea.input {
 .form-note {
   color: var(--color-text-muted);
   font-size: 0.875rem;
+}
+
+/* Revealed by main.js when submit is blocked (no items picked, no free-text
+   fallback typed). Same reveal pattern as .form-success. */
+.form-error[hidden] {
+  display: none;
+}
+
+.form-error {
+  color: var(--color-accent-700);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   9b. ORDER ITEMS (contact page quantity selector)
+   Hardcoded rows, one per priced catalog option — see the note above the
+   order-items block in contact.html. Mobile-first: info stacks above the
+   stepper; min-width: 40em puts them in one row.
+   -------------------------------------------------------------------------- */
+
+.order-items {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius);
+}
+
+.order-items > h2 {
+  font-size: 1.0625rem;
+}
+
+.order-items > .field-hint {
+  margin-top: calc(var(--space-2) * -1);
+}
+
+.order-category h3 {
+  margin-bottom: var(--space-3);
+  font-size: 0.9375rem;
+}
+
+.order-category + .order-category {
+  margin-top: var(--space-5);
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.order-category .order-item:first-of-type {
+  border-top: 1px solid var(--color-divider);
+}
+
+.order-item-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+}
+
+.order-item-number {
+  color: var(--color-accent-700);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.order-item-name {
+  font-weight: 600;
+}
+
+.order-item-price {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: stretch;
+  width: fit-content;
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.qty-btn {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  background: var(--color-bg);
+  border: none;
+  color: var(--color-text);
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qty-btn:hover {
+  background: var(--color-surface-2);
+}
+
+.qty-input {
+  width: 3.5rem;
+  min-height: 2.75rem;
+  padding: 0;
+  background: var(--color-bg);
+  border: none;
+  border-left: 1px solid var(--color-text-muted);
+  border-right: 1px solid var(--color-text-muted);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  /* Removes the native spinner so the custom +/- buttons are the only
+     visible controls; typing and arrow keys still work. */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Revealed by main.js after a successful submit. */
@@ -1002,6 +1140,17 @@ textarea.input {
 
   .form-row {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .order-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .order-item-info {
+    flex: 1;
   }
 
   .btn-block {

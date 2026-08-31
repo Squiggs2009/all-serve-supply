@@ -197,7 +197,60 @@ token — at that lightness, white button text drops to 4.12:1 and fails the
 4.5:1 AA minimum, while `#b92f28` clears it at 6:1 — see the comment above
 the `:root` block in `css/styles.css` for the full reasoning.
 
-## 8. Out of scope for Phase 1
+## 8. Catalog item numbering + contact-page order selector — done
+
+`supplies.html` now shows a visible `#N` number on every priced catalog
+option (inside `.item-price`, immediately before the price value), and
+`contact.html` gained a structured order-request section: 23 rows, each
+with a quantity stepper (`+`/`−` buttons plus a number input, default 0),
+grouped under the same 5 category headings as the catalog page.
+
+**This is a new, separate #1–#23 numbering system — not the same as
+`data/catalog.json`'s `id`/`sku` fields.** The catalog has 20
+`.catalog-item` cards, but 3 of them (Hot Dog Container, 1-Compartment,
+3-Compartment) each show two prices for two pack sizes, so numbering runs
+by *priced option* (23 total), not by card:
+
+```
+#1  White Foam Take-Out Container, Hinged Lid — 9×6×3"
+#2  White Foam Take-Out Container, Hinged Lid — 9×6×2.5"
+#3  White Foam Hot Dog Container, Hinged Lid — 7×4×2" (125 ct)
+#4  White Foam Hot Dog Container, Hinged Lid — 7×4×2" (500 ct, bulk)
+#5  1-Compartment (100 ct)      #6  1-Compartment (200 ct)
+#7  3-Compartment (100 ct)      #8  3-Compartment (200 ct)
+#9–#11  Paper Bags (#2, #4, #8)
+#12–#19 Cups & Lids (8 items)
+#20–#21 Beverages & Carriers (2 items)
+#22–#23 Gloves & Cleaning Supplies (2 items)
+```
+
+`data/catalog.json` keeps its own `id`/`sku` numbering (which, for the
+split pack sizes, appends new SKUs at the end rather than inserting them
+inline — see the note in that file's `_comment`). **Do not assume the two
+numbering systems line up** — they're independent, for different
+purposes.
+
+This also means the top "Supplies Catalog · 21 Items" eyebrow and the
+category-count badges (e.g. "5 items") on `supplies.html` are stale
+against the real 23 priced options / 20 cards. This was already true
+before this change (tracked in §6 above) and stays out of scope here —
+the client's instruction for this feature was explicitly to leave catalog
+counts/structure untouched.
+
+**The order-request form** (`contact.html` / `js/main.js`): the stepper
+list is the primary way to specify items now, but the original free-text
+"Items needed and quantities" textarea (`id="items"`) still exists as an
+optional fallback/supplement — relabeled "Anything not listed above".
+Submitting with zero quantities selected **and** that box empty is
+blocked with a visible error message (not a native `alert()`); picking
+any quantity or typing in the fallback box clears it. The generated
+`mailto:` body lists selected items as `#N — Name — Qty: X` lines, then
+appends any fallback free text under the same heading, then the unrelated
+"Anything else" notes box last — unchanged from before. Submission is
+still 100% `mailto:`, no backend, no fetch — same Phase 1 constraint as
+everywhere else on this page.
+
+## 9. Out of scope for Phase 1
 
 - `gallery.html` — listed as optional in `CLAUDE.md`, not built. A gallery
   with no photographs has nothing to show; revisit once images exist.

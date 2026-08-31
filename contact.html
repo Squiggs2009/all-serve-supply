@@ -25,7 +25,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="supplies.html">Supplies</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
-        <li><a class="btn btn-primary" href="contact.html">Request a Quote</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Request an order</a></li>
       </ul>
     </nav>
   </div>
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Get in Touch</span>
-        <h1>Request a quote</h1>
+        <h1>Request an order</h1>
         <p class="lede">Tell us what you need and we'll follow up with current case pricing and availability. This is an order <strong>request</strong>, not a checkout — nothing is charged or shipped until we've confirmed the details with you.</p>
       </div>
 
@@ -75,10 +75,341 @@
               </div>
             </div>
 
+            <!-- Structured item selection. Hardcoded to match supplies.html —
+                 same #1-#23 numbering, names and prices, in the same order —
+                 no fetch(), no shared data source. See the numbering note
+                 above the catalog section in supplies.html and the matching
+                 entry in PLACEHOLDER-DATA.md before editing either page. -->
+            <div class="order-items">
+              <h2>Select items &amp; quantities <span class="optional">(optional — or describe what you need below)</span></h2>
+              <p class="field-hint">Numbers match the catalog on the Supplies page. Leave anything you don't need at 0.</p>
+
+              <div class="order-category">
+                <h3>Food Containers</h3>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#1</span>
+                    <span class="order-item-name">White Foam Take-Out Container, Hinged Lid — 9×6×3"</span>
+                    <span class="order-item-price">$18.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 1">−</button>
+                    <input type="number" class="qty-input" name="qty-1" min="0" step="1" value="0" aria-label="Quantity, item 1">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 1">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#2</span>
+                    <span class="order-item-name">White Foam Take-Out Container, Hinged Lid — 9×6×2.5"</span>
+                    <span class="order-item-price">$34.99 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 2">−</button>
+                    <input type="number" class="qty-input" name="qty-2" min="0" step="1" value="0" aria-label="Quantity, item 2">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 2">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#3</span>
+                    <span class="order-item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (125 ct)</span>
+                    <span class="order-item-price">$19.00 / 125 ct case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 3">−</button>
+                    <input type="number" class="qty-input" name="qty-3" min="0" step="1" value="0" aria-label="Quantity, item 3">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 3">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#4</span>
+                    <span class="order-item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2" (500 ct, bulk)</span>
+                    <span class="order-item-price">$43.00 / 500 ct bulk case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 4">−</button>
+                    <input type="number" class="qty-input" name="qty-4" min="0" step="1" value="0" aria-label="Quantity, item 4">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 4">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#5</span>
+                    <span class="order-item-name">White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3" (100 ct)</span>
+                    <span class="order-item-price">$17.00 / 100 ct case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 5">−</button>
+                    <input type="number" class="qty-input" name="qty-5" min="0" step="1" value="0" aria-label="Quantity, item 5">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 5">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#6</span>
+                    <span class="order-item-name">White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3" (200 ct)</span>
+                    <span class="order-item-price">$35.99 / 200 ct case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 6">−</button>
+                    <input type="number" class="qty-input" name="qty-6" min="0" step="1" value="0" aria-label="Quantity, item 6">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 6">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#7</span>
+                    <span class="order-item-name">White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3" (100 ct)</span>
+                    <span class="order-item-price">$19.00 / 100 ct case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 7">−</button>
+                    <input type="number" class="qty-input" name="qty-7" min="0" step="1" value="0" aria-label="Quantity, item 7">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 7">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#8</span>
+                    <span class="order-item-name">White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3" (200 ct)</span>
+                    <span class="order-item-price">$42.99 / 200 ct case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 8">−</button>
+                    <input type="number" class="qty-input" name="qty-8" min="0" step="1" value="0" aria-label="Quantity, item 8">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 8">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-category">
+                <h3>Paper Bags</h3>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#9</span>
+                    <span class="order-item-name">Paper Bag — Size #2</span>
+                    <span class="order-item-price">$16.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 9">−</button>
+                    <input type="number" class="qty-input" name="qty-9" min="0" step="1" value="0" aria-label="Quantity, item 9">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 9">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#10</span>
+                    <span class="order-item-name">Paper Bag — Size #4</span>
+                    <span class="order-item-price">$19.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 10">−</button>
+                    <input type="number" class="qty-input" name="qty-10" min="0" step="1" value="0" aria-label="Quantity, item 10">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 10">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#11</span>
+                    <span class="order-item-name">Paper Bag — Size #8</span>
+                    <span class="order-item-price">$24.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 11">−</button>
+                    <input type="number" class="qty-input" name="qty-11" min="0" step="1" value="0" aria-label="Quantity, item 11">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 11">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-category">
+                <h3>Cups &amp; Lids</h3>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#12</span>
+                    <span class="order-item-name">32 oz Cup Kit — Cup, Lid &amp; Straw</span>
+                    <span class="order-item-price">$25.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 12">−</button>
+                    <input type="number" class="qty-input" name="qty-12" min="0" step="1" value="0" aria-label="Quantity, item 12">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 12">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#13</span>
+                    <span class="order-item-name">Foam Cup</span>
+                    <span class="order-item-price">$44.99 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 13">−</button>
+                    <input type="number" class="qty-input" name="qty-13" min="0" step="1" value="0" aria-label="Quantity, item 13">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 13">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#14</span>
+                    <span class="order-item-name">White Vented Lid — Hot Cups</span>
+                    <span class="order-item-price">$39.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 14">−</button>
+                    <input type="number" class="qty-input" name="qty-14" min="0" step="1" value="0" aria-label="Quantity, item 14">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 14">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#15</span>
+                    <span class="order-item-name">Boba Straws — Assorted Colors</span>
+                    <span class="order-item-price">$48.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 15">−</button>
+                    <input type="number" class="qty-input" name="qty-15" min="0" step="1" value="0" aria-label="Quantity, item 15">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 15">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#16</span>
+                    <span class="order-item-name">Portion Cup — 1 oz</span>
+                    <span class="order-item-price">$28.99 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 16">−</button>
+                    <input type="number" class="qty-input" name="qty-16" min="0" step="1" value="0" aria-label="Quantity, item 16">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 16">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#17</span>
+                    <span class="order-item-name">Portion Cup Lid — Fits 0.5–1.25 oz</span>
+                    <span class="order-item-price">$26.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 17">−</button>
+                    <input type="number" class="qty-input" name="qty-17" min="0" step="1" value="0" aria-label="Quantity, item 17">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 17">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#18</span>
+                    <span class="order-item-name">Portion Cup — 2 oz</span>
+                    <span class="order-item-price">$34.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 18">−</button>
+                    <input type="number" class="qty-input" name="qty-18" min="0" step="1" value="0" aria-label="Quantity, item 18">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 18">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#19</span>
+                    <span class="order-item-name">Portion Cup Lid — Fits 1.5–2.5 oz</span>
+                    <span class="order-item-price">$31.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 19">−</button>
+                    <input type="number" class="qty-input" name="qty-19" min="0" step="1" value="0" aria-label="Quantity, item 19">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 19">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-category">
+                <h3>Beverages &amp; Carriers</h3>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#20</span>
+                    <span class="order-item-name">Juice Bottle — 16 oz PET, Tall Square</span>
+                    <span class="order-item-price">$26.00 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 20">−</button>
+                    <input type="number" class="qty-input" name="qty-20" min="0" step="1" value="0" aria-label="Quantity, item 20">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 20">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#21</span>
+                    <span class="order-item-name">Pulp Fiber 4-Cup Carrier</span>
+                    <span class="order-item-price">$49.99 / case</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 21">−</button>
+                    <input type="number" class="qty-input" name="qty-21" min="0" step="1" value="0" aria-label="Quantity, item 21">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 21">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-category">
+                <h3>Gloves &amp; Cleaning Supplies</h3>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#22</span>
+                    <span class="order-item-name">Poly Gloves, S/M/L — Food Service</span>
+                    <span class="order-item-price">$16.99 / box</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 22">−</button>
+                    <input type="number" class="qty-input" name="qty-22" min="0" step="1" value="0" aria-label="Quantity, item 22">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 22">+</button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-info">
+                    <span class="order-item-number">#23</span>
+                    <span class="order-item-name">Sanitizing Multi-Surface Wipes</span>
+                    <span class="order-item-price">$12.00 / canister</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity, item 23">−</button>
+                    <input type="number" class="qty-input" name="qty-23" min="0" step="1" value="0" aria-label="Quantity, item 23">
+                    <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity, item 23">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="form-error" id="order-items-error" role="alert" hidden>Select a quantity for at least one item above, or describe what you need in the box below.</p>
+
             <div class="form-field">
-              <label for="items">Items needed and quantities <span class="required-mark" aria-hidden="true">*</span></label>
-              <textarea class="input" id="items" name="items" rows="5" required placeholder="e.g. 2 cases of 16 oz deli containers, 1 case of nitrile gloves (M), 3 cases of 12 oz hot cups"></textarea>
-              <p class="field-hint">Include sizes and case counts where you know them. If you're not sure, describe what you're using now and we'll match it.</p>
+              <label for="items">Anything not listed above <span class="optional">(optional)</span></label>
+              <textarea class="input" id="items" name="items" rows="5" placeholder="e.g. 2 cases of 16 oz deli containers, 1 case of nitrile gloves (M), 3 cases of 12 oz hot cups"></textarea>
+              <p class="field-hint">Didn't see it in the list above, or not sure of sizes? Describe it here — you can also use this box instead of the list.</p>
             </div>
 
             <div class="form-field">

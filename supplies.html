@@ -97,11 +97,21 @@
            Every .catalog-item MUST keep identical structure, class names and
            tag order:
                .catalog-item > .item-media, h4.item-name,
-                               p.item-price > span.item-unit,
+                               p.item-price > span.item-number, span.item-unit,
                                p.item-description
            (h4, not h3: item names sit one level under the category h3.)
            No one-off markup on individual items — that uniformity is what
            keeps a future migration to dynamic rendering a mechanical change.
+
+           Every priced option carries a span.item-number (e.g. "#1")
+           immediately before its price value, inside p.item-price (or, for
+           the 3 items below with two pack sizes, inside each
+           span.item-price-line). This is a *display-only* #1–#23 numbering
+           scheme used here and on the matching contact.html order section —
+           it is independent of data/catalog.json's id/sku fields. See
+           PLACEHOLDER-DATA.md for the full numbering table and why it
+           doesn't line up 1:1 with that file or with the category-count
+           badges below (23 priced options, 20 cards, badges still say 21).
 
            Real client data as of the 21-item catalog update. All 21 items
            now have confirmed prices and real photography — see
@@ -120,14 +130,14 @@
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/food-containers/foam-container.jpg" alt="White Foam Take-Out Container, Hinged Lid — 9×6×3&quot;">
             <h4 class="item-name">White Foam Take-Out Container, Hinged Lid — 9×6×3"</h4>
-            <p class="item-price">$18.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#1</span> $18.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">White foam hinged-lid take-out container, 9×6×3 in. 100 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/food-containers/stacked-foam-containers.jpg" alt="White Foam Take-Out Container, Hinged Lid — 9×6×2.5&quot;">
             <h4 class="item-name">White Foam Take-Out Container, Hinged Lid — 9×6×2.5"</h4>
-            <p class="item-price">$34.99 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#2</span> $34.99 <span class="item-unit">/ case</span></p>
             <p class="item-description">White foam hinged-lid take-out container, 9×6×2.5 in. 200 per case.</p>
           </div>
 
@@ -135,8 +145,8 @@
             <img class="item-media" src="images/catalog/food-containers/stacked-hotdog-container.jpg" alt="White Foam Hot Dog Container, Hinged Lid — 7×4×2&quot;">
             <h4 class="item-name">White Foam Hot Dog Container, Hinged Lid — 7×4×2"</h4>
             <p class="item-price">
-              <span class="item-price-line">$19.00 <span class="item-unit">/ 125 ct case</span></span>
-              <span class="item-price-line">$43.00 <span class="item-unit">/ 500 ct bulk case</span></span>
+              <span class="item-price-line"><span class="item-number">#3</span> $19.00 <span class="item-unit">/ 125 ct case</span></span>
+              <span class="item-price-line"><span class="item-number">#4</span> $43.00 <span class="item-unit">/ 500 ct bulk case</span></span>
             </p>
             <p class="item-description">White foam hinged-lid hot dog container, 7×4×2 in. Available in a 125 ct case or 500 ct bulk case.</p>
           </div>
@@ -145,8 +155,8 @@
             <img class="item-media" src="images/catalog/food-containers/1-compartment-container.jpg" alt="White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3&quot;">
             <h4 class="item-name">White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3"</h4>
             <p class="item-price">
-              <span class="item-price-line">$17.00 <span class="item-unit">/ 100 ct case</span></span>
-              <span class="item-price-line">$35.99 <span class="item-unit">/ 200 ct case</span></span>
+              <span class="item-price-line"><span class="item-number">#5</span> $17.00 <span class="item-unit">/ 100 ct case</span></span>
+              <span class="item-price-line"><span class="item-number">#6</span> $35.99 <span class="item-unit">/ 200 ct case</span></span>
             </p>
             <p class="item-description">White foam square take-out container, 1 compartment, 9.5×9×3 in. Available in a 100 ct case or 200 ct case.</p>
           </div>
@@ -155,8 +165,8 @@
             <img class="item-media" src="images/catalog/food-containers/3-compartment-container.jpg" alt="White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3&quot;">
             <h4 class="item-name">White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3"</h4>
             <p class="item-price">
-              <span class="item-price-line">$19.00 <span class="item-unit">/ 100 ct case</span></span>
-              <span class="item-price-line">$42.99 <span class="item-unit">/ 200 ct case</span></span>
+              <span class="item-price-line"><span class="item-number">#7</span> $19.00 <span class="item-unit">/ 100 ct case</span></span>
+              <span class="item-price-line"><span class="item-number">#8</span> $42.99 <span class="item-unit">/ 200 ct case</span></span>
             </p>
             <p class="item-description">White foam square take-out container, 3 compartments, 9.5×9×3 in. Available in a 100 ct case or 200 ct case.</p>
           </div>
@@ -175,21 +185,21 @@
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/paper-bags/paperbag.jpg" alt="Paper Bag — Size #2">
             <h4 class="item-name">Paper Bag — Size #2</h4>
-            <p class="item-price">$16.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#9</span> $16.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Kraft paper bag, size #2. 500 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/paper-bags/paper-bag2.jpg" alt="Paper Bag — Size #4">
             <h4 class="item-name">Paper Bag — Size #4</h4>
-            <p class="item-price">$19.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#10</span> $19.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Kraft paper bag, size #4. 500 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/paper-bags/paper-bag2.jpg" alt="Paper Bag — Size #8">
             <h4 class="item-name">Paper Bag — Size #8</h4>
-            <p class="item-price">$24.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#11</span> $24.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Kraft paper bag, size #8. 500 per case.</p>
           </div>
 
@@ -207,56 +217,56 @@
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/32oz-cup-with-lids.jpg" alt="32 oz Cup Kit — Cup, Lid &amp; Straw">
             <h4 class="item-name">32 oz Cup Kit — Cup, Lid &amp; Straw</h4>
-            <p class="item-price">$25.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#12</span> $25.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">32 oz cold cup kit — cup, lid and straw included. 50 kits per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/foam-cups.jpg" alt="Foam Cup">
             <h4 class="item-name">Foam Cup</h4>
-            <p class="item-price">$44.99 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#13</span> $44.99 <span class="item-unit">/ case</span></p>
             <p class="item-description">Foam drink cup. 1,000 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/white-lids.jpg" alt="White Vented Lid — Hot Cups">
             <h4 class="item-name">White Vented Lid — Hot Cups</h4>
-            <p class="item-price">$39.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#14</span> $39.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">White vented lid for hot cups. 1,000 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/boba-straws.jpg" alt="Boba Straws — Assorted Colors">
             <h4 class="item-name">Boba Straws — Assorted Colors</h4>
-            <p class="item-price">$48.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#15</span> $48.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Individually wrapped boba straws, assorted colors. 1,600 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/portion-cup.jpg" alt="Portion Cup — 1 oz">
             <h4 class="item-name">Portion Cup — 1 oz</h4>
-            <p class="item-price">$28.99 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#16</span> $28.99 <span class="item-unit">/ case</span></p>
             <p class="item-description">Clear plastic portion cup, 1 oz. 2,500 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/portion-cup-lids.jpg" alt="Portion Cup Lid — Fits 0.5–1.25 oz">
             <h4 class="item-name">Portion Cup Lid — Fits 0.5–1.25 oz</h4>
-            <p class="item-price">$26.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#17</span> $26.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">PET lid, fits 0.5–1.25 oz portion cups. 2,500 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/2oz-portion-cup.jpg" alt="Portion Cup — 2 oz">
             <h4 class="item-name">Portion Cup — 2 oz</h4>
-            <p class="item-price">$34.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#18</span> $34.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Clear plastic portion cup, 2 oz. 2,500 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/cups-and-lids/portion-cup-lids.jpg" alt="Portion Cup Lid — Fits 1.5–2.5 oz">
             <h4 class="item-name">Portion Cup Lid — Fits 1.5–2.5 oz</h4>
-            <p class="item-price">$31.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#19</span> $31.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">PET lid, fits 1.5–2.5 oz portion cups. 2,500 per case.</p>
           </div>
 
@@ -274,14 +284,14 @@
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/beverages-and-carriers/white-bev-container.jpg" alt="Juice Bottle — 16 oz PET, Tall Square">
             <h4 class="item-name">Juice Bottle — 16 oz PET, Tall Square</h4>
-            <p class="item-price">$26.00 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#20</span> $26.00 <span class="item-unit">/ case</span></p>
             <p class="item-description">Clear PET juice bottle, tall square shape, with white lid. 16 oz, 26 per case.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/beverages-and-carriers/cup-carrier.jpg" alt="Pulp Fiber 4-Cup Carrier">
             <h4 class="item-name">Pulp Fiber 4-Cup Carrier</h4>
-            <p class="item-price">$49.99 <span class="item-unit">/ case</span></p>
+            <p class="item-price"><span class="item-number">#21</span> $49.99 <span class="item-unit">/ case</span></p>
             <p class="item-description">Molded pulp fiber carrier, holds 4 cups. 300 per case.</p>
           </div>
 
@@ -299,14 +309,14 @@
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/gloves-and-cleaning/poly-gloves.jpg" alt="Poly Gloves, S/M/L — Food Service">
             <h4 class="item-name">Poly Gloves, S/M/L — Food Service</h4>
-            <p class="item-price">$16.99 <span class="item-unit">/ box</span></p>
+            <p class="item-price"><span class="item-number">#22</span> $16.99 <span class="item-unit">/ box</span></p>
             <p class="item-description">Disposable poly glove, food service grade. Available in S/M/L. 500 per box.</p>
           </div>
 
           <div class="catalog-item">
             <img class="item-media" src="images/catalog/gloves-and-cleaning/sanitizing-wipes.jpg" alt="Sanitizing Multi-Surface Wipes">
             <h4 class="item-name">Sanitizing Multi-Surface Wipes</h4>
-            <p class="item-price">$12.00 <span class="item-unit">/ canister</span></p>
+            <p class="item-price"><span class="item-number">#23</span> $12.00 <span class="item-unit">/ canister</span></p>
             <p class="item-description">Sanitizing wipes for food-contact and general surfaces. 175 per canister.</p>
           </div>
 
