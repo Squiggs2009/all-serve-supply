@@ -1,5 +1,5 @@
 {
-  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data. SKUs are sequential placeholders, not real client SKUs. Note: item-003 and item-004 (Hot Dog Container, 125ct/500ct) are two rows here (one per SKU/pack size), but supplies.html renders them as a single merged card with two stacked prices -- a deliberate Phase 1 display exception, not a data mismatch to fix.",
+  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data. SKUs are sequential placeholders, not real client SKUs. Note: item-003/item-004 (Hot Dog Container, 125ct/500ct) and item-005/item-022 & item-006/item-023 (the 1- and 3-Compartment containers, 200ct/100ct) are each two rows here (one per SKU/pack size), but supplies.html renders each pair as a single merged card with two stacked prices -- a deliberate Phase 1 display exception, not a data mismatch to fix. The new 100ct rows (item-022, item-023) were appended at the end rather than inserted near their 200ct siblings to keep existing SKUs/ids stable.",
   "items": [
     {
       "id": "item-001",
@@ -28,7 +28,7 @@
       "sku": "ASS-0003",
       "name": "White Foam Hot Dog Container, Hinged Lid — 7×4×2\" (125 ct)",
       "category": "Food Containers",
-      "price": 16.00,
+      "price": 19.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-hotdog-container-125ct.jpg",
@@ -39,7 +39,7 @@
       "sku": "ASS-0004",
       "name": "White Foam Hot Dog Container, Hinged Lid — 7×4×2\" (500 ct, bulk)",
       "category": "Food Containers",
-      "price": 42.00,
+      "price": 43.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-hotdog-container-500ct.jpg",
@@ -48,7 +48,7 @@
     {
       "id": "item-005",
       "sku": "ASS-0005",
-      "name": "White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3\"",
+      "name": "White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3\" (200 ct)",
       "category": "Food Containers",
       "price": 35.99,
       "unit": "case",
@@ -59,7 +59,7 @@
     {
       "id": "item-006",
       "sku": "ASS-0006",
-      "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\"",
+      "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\" (200 ct)",
       "category": "Food Containers",
       "price": 42.99,
       "unit": "case",
@@ -231,6 +231,28 @@
       "in_stock": true,
       "image": "images/catalog/sanitizing-wipes.jpg",
       "description": "Sanitizing wipes for food-contact and general surfaces. 175 per canister."
+    },
+    {
+      "id": "item-022",
+      "sku": "ASS-0022",
+      "name": "White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3\" (100 ct)",
+      "category": "Food Containers",
+      "price": 17.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-square-container-1comp.jpg",
+      "description": "White foam square take-out container, 1 compartment, 9.5×9×3 in. 100 per case."
+    },
+    {
+      "id": "item-023",
+      "sku": "ASS-0023",
+      "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\" (100 ct)",
+      "category": "Food Containers",
+      "price": 19.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/foam-square-container-3comp.jpg",
+      "description": "White foam square take-out container, 3 compartments, 9.5×9×3 in. 100 per case."
     }
   ]
 }

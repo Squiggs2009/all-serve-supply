@@ -17,8 +17,18 @@ placeholders). All 21 items have confirmed prices.
   **$16.99 / box** in both `supplies.html` and `data/catalog.json`. The
   item name/description were also updated from "Large" to "S/M/L" since
   the price covers all three sizes.
-- **ASS-0004, Hot Dog Container, 500 ct bulk** — corrected from $43.00 to
-  **$42.00** in both `supplies.html` and `data/catalog.json`.
+- **ASS-0003, Hot Dog Container, 125 ct** — corrected from $16.00 to
+  **$19.00**.
+- **ASS-0004, Hot Dog Container, 500 ct bulk** — briefly corrected to
+  $42.00, then reverted back to **$43.00** (the client confirmed this is
+  the correct, unchanged figure) in both `supplies.html` and
+  `data/catalog.json`.
+- **1-Compartment container** (ASS-0005 / ASS-0022) gained a second pack
+  size: **$17.00 / 100 ct case**, alongside the existing $35.99 / 200 ct
+  case.
+- **3-Compartment container** (ASS-0006 / ASS-0023) gained a second pack
+  size: **$19.00 / 100 ct case**, alongside the existing $42.99 / 200 ct
+  case.
 
 ## 2. Pack counts, materials and descriptions — done
 
@@ -82,26 +92,34 @@ and it exposes the destination address. Better options for launch:
       (renamed from a typo'd client filename,
       `stacked-hotdof-contianer.jpg`). The 125ct-only photo,
       `hotdog-container.jpg`, remains on disk but is no longer referenced.
-    - `White Foam Square Take-Out Container, 1-Compartment` uses
+    - `White Foam Square Take-Out Container, 1-Compartment` (100 ct and
+      200 ct, merged into one card — see note below) uses
       `images/catalog/food-containers/1-compartment-container.jpg`
       (renamed from `1-compartment-foam.jpg` for naming consistency
       with its siblings).
-    - `White Foam Square Take-Out Container, 3-Compartment` uses
+    - `White Foam Square Take-Out Container, 3-Compartment` (100 ct and
+      200 ct, merged into one card — see note below) uses
       `images/catalog/food-containers/3-compartment-container.jpg`.
     - All 6 resized to 700px on the long edge, ~21–61 KB each (client
       originals were 2–2.8 MB).
-    - **Hot Dog Container merge (one-off exception):** the 125 ct and
-      500 ct bulk pack sizes used to render as two separate cards with
-      two different prices ($16.00 / $43.00) sitting next to each other,
-      which read as confusing. Per client request, they're now one
-      `.catalog-item` card with two stacked price lines ($16.00 / 125 ct
-      case and $42.00 / 500 ct bulk case) via a new opt-in
-      `.item-price-line` CSS class (see `css/styles.css`, near
-      `.item-price`). This is the only catalog card that deviates from
-      the one-price-per-card structure `CLAUDE.md` otherwise requires —
-      confirmed directly with the client, not an oversight. `data/catalog.json`
-      still lists these as two separate SKU rows (item-003 / item-004);
-      that 1-row-per-SKU vs. 1-card mismatch is expected, not a bug.
+    - **Multi-price-line cards (one-off exception, 3 of 5 cards in this
+      category):** the Hot Dog Container (125 ct / 500 ct bulk), the
+      1-Compartment container (100 ct / 200 ct), and the 3-Compartment
+      container (100 ct / 200 ct) each used to render — or would
+      otherwise render — as two separate cards with two different prices
+      sitting next to each other, which read as confusing. Per client
+      request, each is one `.catalog-item` card with two stacked price
+      lines, via an opt-in `.item-price-line` CSS class (see
+      `css/styles.css`, near `.item-price`). These are the only catalog
+      cards that deviate from the one-price-per-card structure
+      `CLAUDE.md` otherwise requires — confirmed directly with the
+      client, not an oversight. Current prices: Hot Dog Container $19.00
+      / 125 ct case and $43.00 / 500 ct bulk case; 1-Compartment $17.00 /
+      100 ct case and $35.99 / 200 ct case; 3-Compartment $19.00 / 100 ct
+      case and $42.99 / 200 ct case. `data/catalog.json` still lists each
+      pair as two separate SKU rows (item-003/item-004,
+      item-005/item-022, item-006/item-023); that 1-row-per-SKU vs.
+      1-card mismatch is expected, not a bug.
   - **Cups & Lids (8 of 8 — done):**
     - `32 oz Cup Kit — Cup, Lid & Straw` uses
       `images/catalog/cups-and-lids/32oz-cup-with-lids.jpg`. Its `src`
