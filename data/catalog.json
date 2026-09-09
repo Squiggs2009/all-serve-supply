@@ -1,5 +1,5 @@
 {
-  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data. SKUs are sequential placeholders, not real client SKUs. Note: item-003/item-004 (Hot Dog Container, 125ct/500ct) and item-005/item-022 & item-006/item-023 (the 1- and 3-Compartment containers, 200ct/100ct) are each two rows here (one per SKU/pack size), but supplies.html renders each pair as a single merged card with two stacked prices -- a deliberate Phase 1 display exception, not a data mismatch to fix. The new 100ct rows (item-022, item-023) were appended at the end rather than inserted near their 200ct siblings to keep existing SKUs/ids stable.",
+  "_comment": "REFERENCE ONLY. This file documents the catalog data shape for a possible future dynamic build (e.g. if a payment system is added). It is NOT fetched or rendered by any page. The live catalog is hardcoded in supplies.html and this file is kept in sync by hand. Prices and descriptions are real client data. SKUs are sequential placeholders, not real client SKUs. Note: item-003/item-004 (Hot Dog Container, 125ct/500ct), item-005/item-022 (1-Compartment, 200ct/100ct), item-006/item-023 (3-Compartment, 200ct/100ct), item-011/item-024 (Foam Food Container, 1,000ct case/single pack), item-026/item-027 (Wax Paper, box/case) and item-032/item-033 (Paper Towel, single roll/case) are each two rows here (one per SKU/pack size), but supplies.html renders each pair as a single merged card with two stacked prices -- a deliberate Phase 1 display exception, not a data mismatch to fix. New rows (item-022 onward) are appended at the end rather than inserted near their siblings, to keep existing SKUs/ids stable. supplies.html's #1-#33 display numbering is a separate, independent scheme from these ids/skus -- see the note above the catalog section in supplies.html.",
   "items": [
     {
       "id": "item-001",
@@ -105,22 +105,22 @@
       "sku": "ASS-0010",
       "name": "32 oz Cup Kit — Cup, Lid & Straw",
       "category": "Cups & Lids",
-      "price": 25.00,
+      "price": 7.99,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/cup-kit-32oz.jpg",
-      "description": "32 oz cold cup kit — cup, lid and straw included. 50 kits per case."
+      "description": "32 oz cold cup kit — includes 50 cups, 50 lids and 50 straws per case."
     },
     {
       "id": "item-011",
       "sku": "ASS-0011",
-      "name": "Foam Cup",
+      "name": "Dart 4J6 4oz. White Customizable Foam Food Container (1,000 ct case)",
       "category": "Cups & Lids",
       "price": 44.99,
       "unit": "case",
       "in_stock": true,
-      "image": "images/catalog/foam-cups.jpg",
-      "description": "Foam drink cup. 1,000 per case."
+      "image": "images/catalog/cups-and-lids/foam-cups.jpg",
+      "description": "White foam food container, 4 oz. — for beans, sauces and other small food portions, not beverages. Available as a single pack or a 1,000 ct case."
     },
     {
       "id": "item-012",
@@ -253,6 +253,116 @@
       "in_stock": true,
       "image": "images/catalog/foam-square-container-3comp.jpg",
       "description": "White foam square take-out container, 3 compartments, 9.5×9×3 in. 100 per case."
+    },
+    {
+      "id": "item-024",
+      "sku": "ASS-0024",
+      "name": "Dart 4J6 4oz. White Customizable Foam Food Container (single pack)",
+      "category": "Cups & Lids",
+      "price": 3.99,
+      "unit": "single pack",
+      "in_stock": true,
+      "image": "images/catalog/cups-and-lids/foam-cups.jpg",
+      "description": "White foam food container, 4 oz. — for beans, sauces and other small food portions, not beverages. Available as a single pack or a 1,000 ct case."
+    },
+    {
+      "id": "item-025",
+      "sku": "ASS-0025",
+      "name": "12\" x 1000' Food Service Standard Aluminum Foil Roll",
+      "category": "Food Containers",
+      "price": 42.00,
+      "unit": "roll",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/aluminum-foil.jpg",
+      "description": "Food service standard aluminum foil roll, 12 in. x 1000 ft."
+    },
+    {
+      "id": "item-026",
+      "sku": "ASS-0026",
+      "name": "8\" x 10¾\" Customizable Interfolded Deli Wrap Wax Paper (box, 500 ct)",
+      "category": "Food Containers",
+      "price": 7.00,
+      "unit": "box (500 ct)",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/wax-paper.png",
+      "description": "Interfolded deli wrap wax paper, 8 in. x 10¾ in. Available as a single box (500 ct) or a 6,000 ct case."
+    },
+    {
+      "id": "item-027",
+      "sku": "ASS-0027",
+      "name": "8\" x 10¾\" Customizable Interfolded Deli Wrap Wax Paper (6,000 ct case)",
+      "category": "Food Containers",
+      "price": 64.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/wax-paper.png",
+      "description": "Interfolded deli wrap wax paper, 8 in. x 10¾ in. Available as a single box (500 ct) or a 6,000 ct case."
+    },
+    {
+      "id": "item-028",
+      "sku": "ASS-0028",
+      "name": "3 lb. Red Plaid Paper Food Tray (250 ct)",
+      "category": "Food Containers",
+      "price": 18.00,
+      "unit": "250 ct",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/paper-tray.png",
+      "description": "Red plaid paper food tray, 3 lb. capacity. Available in a 250 ct or 500 ct case."
+    },
+    {
+      "id": "item-029",
+      "sku": "ASS-0029",
+      "name": "3 lb. Red Plaid Paper Food Tray (500 ct case)",
+      "category": "Food Containers",
+      "price": 33.99,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/paper-tray.png",
+      "description": "Red plaid paper food tray, 3 lb. capacity. Available in a 250 ct or 500 ct case."
+    },
+    {
+      "id": "item-030",
+      "sku": "ASS-0030",
+      "name": "5⅝\" Medium Weight White Polypropylene Plastic Teaspoon",
+      "category": "Food Containers",
+      "price": 25.00,
+      "unit": "2,000 ct case",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/plastic-spoons.png",
+      "description": "Medium weight white polypropylene plastic teaspoon, 5⅝ in. 2,000 per case."
+    },
+    {
+      "id": "item-031",
+      "sku": "ASS-0031",
+      "name": "16 oz. Black Round Microwavable Heavy Weight Container with Lid",
+      "category": "Food Containers",
+      "price": 39.99,
+      "unit": "150 ct case",
+      "in_stock": true,
+      "image": "images/catalog/food-containers/microwaved-container.png",
+      "description": "Black round microwavable heavy weight container with lid, 16 oz. 150 per case."
+    },
+    {
+      "id": "item-032",
+      "sku": "ASS-0032",
+      "name": "8\" White Hardwound Paper Towel, 800ft/Roll (single roll)",
+      "category": "Gloves & Cleaning Supplies",
+      "price": 8.00,
+      "unit": "single roll",
+      "in_stock": true,
+      "image": "images/catalog/gloves-and-cleaning/paper-towel.png",
+      "description": "White hardwound paper towel roll, 8 in., 800 ft. per roll. Available as a single roll or a 6-roll case."
+    },
+    {
+      "id": "item-033",
+      "sku": "ASS-0033",
+      "name": "8\" White Hardwound Paper Towel, 800ft/Roll (6-roll case)",
+      "category": "Gloves & Cleaning Supplies",
+      "price": 42.00,
+      "unit": "case",
+      "in_stock": true,
+      "image": "images/catalog/gloves-and-cleaning/paper-towel.png",
+      "description": "White hardwound paper towel roll, 8 in., 800 ft. per roll. Available as a single roll or a 6-roll case."
     }
   ]
 }
