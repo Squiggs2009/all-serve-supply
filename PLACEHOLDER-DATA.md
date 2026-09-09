@@ -19,9 +19,11 @@ prices.
   4 oz. foam **food** container (for beans, sauces, small portions), not
   a drink cup. Renamed to "Dart 4J6 4oz. White Customizable Foam Food
   Container" and given a second pack-size option: **$3.99 / single
-  pack**, alongside the existing $44.99 / 1,000 ct case. Photo
-  unchanged (`images/catalog/cups-and-lids/foam-cups.jpg`) — same photo,
-  corrected label.
+  pack**, alongside the existing $44.99 / 1,000 ct case. Photo swapped
+  to `images/catalog/cups-and-lids/white-foam-cup.png` — a real shot of
+  the container filled with a bean/grain salad, sourced specifically for
+  this corrected item (replaces the old drink-cup photo,
+  `foam-cups.jpg`, which has been deleted from disk).
 
 - **ASS-0020, Poly Gloves, S/M/L — Food Service** (Gloves & Cleaning
   Supplies) was the last item without a confirmed price; it's now
@@ -160,9 +162,11 @@ and it exposes the destination address. Better options for launch:
       place, not deleted.
     - `Dart 4J6 4oz. White Customizable Foam Food Container` (renamed
       from "Foam Cup" — it's a food container, not a drink cup; see §1)
-      uses `images/catalog/cups-and-lids/foam-cups.jpg`, unchanged.
-      Now a two-price-line card: $3.99 / single pack and $44.99 /
-      1,000 ct case.
+      uses `images/catalog/cups-and-lids/white-foam-cup.png`, sourced
+      specifically for this item (a filled bean/grain salad shot,
+      replacing the old drink-cup photo `foam-cups.jpg`, now deleted).
+      Two-price-line card: $3.99 / single pack and $44.99 / 1,000 ct
+      case.
     - `White Vented Lid — Hot Cups` uses
       `images/catalog/cups-and-lids/white-lids.jpg`.
     - `Boba Straws — Assorted Colors` uses

@@ -119,7 +119,7 @@
       "price": 44.99,
       "unit": "case",
       "in_stock": true,
-      "image": "images/catalog/cups-and-lids/foam-cups.jpg",
+      "image": "images/catalog/cups-and-lids/white-foam-cup.png",
       "description": "White foam food container, 4 oz. — for beans, sauces and other small food portions, not beverages. Available as a single pack or a 1,000 ct case."
     },
     {
@@ -262,7 +262,7 @@
       "price": 3.99,
       "unit": "single pack",
       "in_stock": true,
-      "image": "images/catalog/cups-and-lids/foam-cups.jpg",
+      "image": "images/catalog/cups-and-lids/white-foam-cup.png",
       "description": "White foam food container, 4 oz. — for beans, sauces and other small food portions, not beverages. Available as a single pack or a 1,000 ct case."
     },
     {
