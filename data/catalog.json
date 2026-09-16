@@ -61,7 +61,7 @@
       "sku": "ASS-0006",
       "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\" (200 ct)",
       "category": "Food Containers",
-      "price": 42.99,
+      "price": 39.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-square-container-3comp.jpg",
@@ -105,7 +105,7 @@
       "sku": "ASS-0010",
       "name": "32 oz Cup Kit — Cup, Lid & Straw",
       "category": "Cups & Lids",
-      "price": 7.99,
+      "price": 27.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/cup-kit-32oz.jpg",
@@ -152,7 +152,7 @@
       "price": 28.99,
       "unit": "case",
       "in_stock": true,
-      "image": "images/catalog/souffle-cup-1oz.jpg",
+      "image": "images/catalog/souffle-cup-2oz.jpg",
       "description": "Clear plastic portion cup, 1 oz. 2,500 per case."
     },
     {
@@ -174,7 +174,7 @@
       "price": 34.00,
       "unit": "case",
       "in_stock": true,
-      "image": "images/catalog/souffle-cup-2oz.jpg",
+      "image": "images/catalog/souffle-cup-1oz.jpg",
       "description": "Clear plastic portion cup, 2 oz. 2,500 per case."
     },
     {
@@ -213,13 +213,13 @@
     {
       "id": "item-020",
       "sku": "ASS-0020",
-      "name": "Poly Gloves, S/M/L — Food Service",
+      "name": "Powder-Free Disposable Clear 3 Mil Thick Vinyl Gloves for Food-service",
       "category": "Gloves & Cleaning Supplies",
-      "price": 16.99,
+      "price": 7.99,
       "unit": "box",
       "in_stock": true,
       "image": "images/catalog/gloves-and-cleaning/poly-gloves.jpg",
-      "description": "Disposable poly glove, food service grade. Available in S/M/L. 500 per box."
+      "description": "Powder-free, clear vinyl glove, 3 mil thick, food-service grade. 100 per box."
     },
     {
       "id": "item-021",
@@ -237,7 +237,7 @@
       "sku": "ASS-0022",
       "name": "White Foam Square Take-Out Container, 1-Compartment — 9.5×9×3\" (100 ct)",
       "category": "Food Containers",
-      "price": 17.00,
+      "price": 18.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-square-container-1comp.jpg",
@@ -248,7 +248,7 @@
       "sku": "ASS-0023",
       "name": "White Foam Square Take-Out Container, 3-Compartment — 9.5×9×3\" (100 ct)",
       "category": "Food Containers",
-      "price": 19.00,
+      "price": 22.00,
       "unit": "case",
       "in_stock": true,
       "image": "images/catalog/foam-square-container-3comp.jpg",

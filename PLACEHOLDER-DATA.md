@@ -12,9 +12,10 @@ The 26-card / 33-priced-option catalog in `supplies.html` / `data/catalog.json`
 now uses real client prices and descriptions. All items have confirmed
 prices.
 
-- **ASS-0010, 32 oz Cup Kit** — corrected from $25.00 to **$7.99 / case**;
-  description updated to explicitly list 50 cups, 50 lids and 50 straws
-  per case (previously just said "cup, lid and straw included").
+- **ASS-0010, 32 oz Cup Kit** — corrected from $25.00 to $7.99, then
+  corrected again to **$27.00 / case**; description already explicitly
+  lists 50 cups, 50 lids and 50 straws per case (previously just said
+  "cup, lid and straw included").
 - **ASS-0011 / ASS-0024, "Foam Cup"** — this item was mislabeled; it's a
   4 oz. foam **food** container (for beans, sauces, small portions), not
   a drink cup. Renamed to "Dart 4J6 4oz. White Customizable Foam Food
@@ -25,11 +26,13 @@ prices.
   this corrected item (replaces the old drink-cup photo,
   `foam-cups.jpg`, which has been deleted from disk).
 
-- **ASS-0020, Poly Gloves, S/M/L — Food Service** (Gloves & Cleaning
-  Supplies) was the last item without a confirmed price; it's now
-  **$16.99 / box** in both `supplies.html` and `data/catalog.json`. The
-  item name/description were also updated from "Large" to "S/M/L" since
-  the price covers all three sizes.
+- **ASS-0020, formerly "Poly Gloves, S/M/L — Food Service"** (Gloves &
+  Cleaning Supplies) — renamed to "Powder-Free Disposable Clear 3 Mil
+  Thick Vinyl Gloves for Food-service" to correctly describe the vinyl
+  product; price corrected from $16.99 to **$7.99 / box**; pack count
+  corrected from 500/box to **100/box**. Image is unchanged
+  (`poly-gloves.jpg`) but is now a temporary placeholder pending a real
+  photo of the vinyl glove — see §6 below.
 - **ASS-0003, Hot Dog Container, 125 ct** — corrected from $16.00 to
   **$19.00**.
 - **ASS-0004, Hot Dog Container, 500 ct bulk** — briefly corrected to
@@ -37,11 +40,15 @@ prices.
   the correct, unchanged figure) in both `supplies.html` and
   `data/catalog.json`.
 - **1-Compartment container** (ASS-0005 / ASS-0022) gained a second pack
-  size: **$17.00 / 100 ct case**, alongside the existing $35.99 / 200 ct
-  case.
+  size, since corrected to **$18.00 / 100 ct case**, alongside the
+  existing $35.99 / 200 ct case.
 - **3-Compartment container** (ASS-0006 / ASS-0023) gained a second pack
-  size: **$19.00 / 100 ct case**, alongside the existing $42.99 / 200 ct
-  case.
+  size, since corrected to **$22.00 / 100 ct case** and **$39.00 / 200 ct
+  case** (was $19.00 / $42.99).
+- **Portion Cup — 1 oz / Portion Cup — 2 oz** (ASS-0014 / ASS-0016) had
+  their product photos swapped in `supplies.html` — each card now shows
+  the other's original photo. Names, prices and descriptions are
+  unchanged.
 
 ## 2. Pack counts, materials and descriptions — done
 
@@ -172,9 +179,10 @@ and it exposes the destination address. Better options for launch:
     - `Boba Straws — Assorted Colors` uses
       `images/catalog/cups-and-lids/boba-straws.jpg`.
     - `Portion Cup — 1 oz` uses
-      `images/catalog/cups-and-lids/portion-cup.jpg`.
-    - `Portion Cup — 2 oz` uses
-      `images/catalog/cups-and-lids/2oz-portion-cup.jpg`.
+      `images/catalog/cups-and-lids/2oz-portion-cup.jpg` and
+      `Portion Cup — 2 oz` uses
+      `images/catalog/cups-and-lids/portion-cup.jpg` — the two photos
+      were swapped (each card now shows the other's original photo).
     - `Portion Cup Lid — Fits 0.5–1.25 oz` and
       `Portion Cup Lid — Fits 1.5–2.5 oz` both use
       `images/catalog/cups-and-lids/portion-cup-lids.jpg` (two separate
@@ -198,9 +206,14 @@ and it exposes the destination address. Better options for launch:
       `images/catalog/beverages-and-carriers/cup-carrier.jpg`.
     - Both resized to 700px wide, ~33–51 KB each (client originals were
       3–4.2 MB).
-  - **Gloves & Cleaning Supplies (3 of 3 — done):**
-    - `Poly Gloves, S/M/L — Food Service` uses
-      `images/catalog/gloves-and-cleaning/poly-gloves.jpg`.
+  - **Gloves & Cleaning Supplies (2 of 3 done, 1 pending):**
+    - `Powder-Free Disposable Clear 3 Mil Thick Vinyl Gloves for
+      Food-service` (formerly "Poly Gloves, S/M/L — Food Service") still
+      uses `images/catalog/gloves-and-cleaning/poly-gloves.jpg`, but this
+      is now a **temporary placeholder** — the photo was sourced for the
+      old poly glove product before the rename, and does not depict the
+      new vinyl glove. Flagged inline in `supplies.html` with an HTML
+      comment. Needs a real vinyl glove photo before launch.
     - `Sanitizing Multi-Surface Wipes` uses
       `images/catalog/gloves-and-cleaning/sanitizing-wipes.jpg`. Note:
       the canister in this stock photo is labeled "100 WIPES," while our
@@ -216,7 +229,9 @@ and it exposes the destination address. Better options for launch:
       original was already a compact 600×600 — kept at that native size
       (not upscaled) and just recompressed, ~110 KB.
 
-**All 26 catalog cards now have real photos — catalog photography is complete.**
+**25 of 26 catalog cards have real, correctly-matched photos.** The one
+exception is the vinyl glove item above, which needs a new product photo
+before launch — see the note in its Gloves & Cleaning Supplies entry.
 
 `.item-media` is styled `aspect-ratio: 1 / 1`, so every photo above slotted
 in without any layout shift.
@@ -276,7 +291,7 @@ option* (33 total), not by card:
 #20 Foam Food Container (single pack)   #21 Foam Food Container (1,000 ct case)
 #22–#27 remaining Cups & Lids (6 items)
 #28–#29 Beverages & Carriers (2 items)
-#30–#31 Poly Gloves, Sanitizing Wipes
+#30–#31 Vinyl Gloves (formerly "Poly Gloves"), Sanitizing Wipes
 #32 Paper Towel (single roll)           #33 Paper Towel (6-roll case)
 ```
 
